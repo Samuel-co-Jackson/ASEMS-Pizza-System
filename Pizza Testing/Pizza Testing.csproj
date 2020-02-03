@@ -52,7 +52,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstStaff.cs" />
     <Compile Include="tstMenu.cs" />
-    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
