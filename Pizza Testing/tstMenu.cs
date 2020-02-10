@@ -74,7 +74,7 @@ namespace Pizza_Testing
             //create an instance of the class we want to create
             clsMenu AMenu = new clsMenu();
             //create some test data to assign to the property
-            float TestData = 2;
+            Double TestData = 2.5;
             //assign the data to the property
             AMenu.Price = TestData;
             //test to see that the two values are the same
