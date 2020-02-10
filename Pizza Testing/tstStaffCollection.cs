@@ -39,18 +39,6 @@ namespace Pizza_Testing
             //test to see that the two values are the same
             Assert.AreEqual(allStaff.myStaff, TestList);
         }
-
-        [TestMethod]
-        public void countPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsStaffCollection allStaff = new clsStaffCollection();
-            //Count should be 0 when we initialize the property
-            Int32 testData = 0;
-            //test to see that the two values are the same
-            Assert.AreEqual(allStaff.Count, testData);
-        }
-
         [TestMethod]
 
         public void thisStaffPropertyOK()
@@ -94,7 +82,6 @@ namespace Pizza_Testing
             //test to see that the two values are the same
             Assert.AreEqual(allStaff.Count, TestList.Count);
         }
-
 
     }
 }
