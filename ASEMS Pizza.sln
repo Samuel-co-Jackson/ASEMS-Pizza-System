@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PizzaFrontOffice", "PizzaFrontOffice\", "{D8DB3BE0-974D-4678-80B2-5E20CBEB1530}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{b47edad7-75ed-48e9-8cc8-b2638efae6fc}|PizzaClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_50821"
 		Debug.AspNetCompiler.PhysicalPath = "PizzaFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50821\"
@@ -23,6 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PizzaFrontOffice", "PizzaFr
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "50821"
+		SlnRelativePath = "PizzaFrontOffice\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject

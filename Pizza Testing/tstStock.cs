@@ -35,7 +35,7 @@ namespace Pizza_Testing
             //create an instance of the class I want to create
             clsStock AStock = new clsStock();
             //create test data to assign to property
-            string TestData = "Cucumber";
+            string TestData = "Some item info";
             //assign the data to the property
             AStock.Description = TestData;
             //test to see if the two values match
@@ -66,5 +66,5 @@ namespace Pizza_Testing
             //test to see if the two values match
             Assert.AreEqual(AStock.StockItemPrice, TestData);
         }
-    }//srghwrwrgt
+    }
 }

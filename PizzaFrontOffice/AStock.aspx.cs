@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,11 @@ public partial class AStock : System.Web.UI.Page
     {
         //create a new instance of clsStock
         clsStock AStock = new clsStock();
-
+        //capture the Stock Name
+        AStock.Name = TextBoxName.Text;
+        //Store the name in the session object
+        Session["AStock"] = AStock;
+        //redirect to the viewer page
+        Response.Redirect("StockViewer.aspx");
     }
 }
