@@ -15,7 +15,7 @@ public partial class AStock : System.Web.UI.Page
     protected void ButtonOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsStock
-        //clsStock AStock = new clsStock();
+        clsStock AStock = new clsStock();
 
     }
 }
