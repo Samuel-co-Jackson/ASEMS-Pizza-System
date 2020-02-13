@@ -53,7 +53,7 @@ namespace Pizza_Testing
             //create an instance of the clsCustomerCollection class
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //create some test data to assign to the property
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 2;
             //assign the data to the property
             AllCustomers.Count = SomeCount;
             //test to see that the two values are the same
@@ -114,5 +114,13 @@ namespace Pizza_Testing
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
         }
 
+        [TestMethod]
+        public void TwoRecordsPresent()
+        {
+            //create an instance of the clsCustomerCollection class
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, 2);
+        }
     }
 }
