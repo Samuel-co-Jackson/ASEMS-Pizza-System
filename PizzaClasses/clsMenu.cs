@@ -10,6 +10,9 @@
         public string Description { get; set; }
         public int MenuItemID { get; set; }
         public int RecipeID { get; set; }
-        public float Price { get; set; }
+        public double Price { get; set; }
+
+
+
     }
 }
