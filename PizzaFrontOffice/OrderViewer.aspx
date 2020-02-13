@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="OrderViewer.aspx.cs" Inherits="OrderViewer" %>
 
 <!DOCTYPE html>
 
@@ -7,10 +7,9 @@
     <title></title>
 </head>
 <body>
-     <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div>
         </div>
     </form>
-
-    </body>
+</body>
 </html>
