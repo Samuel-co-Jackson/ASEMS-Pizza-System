@@ -42,18 +42,7 @@ namespace Pizza_Testing
             Assert.AreEqual(AllMenu.MenuList, TestList);
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsMenuCollection AllMenu = new clsMenuCollection();
-            //create some test data to assign to the property
-            Int32 SomeCount = 0;
-            //assign the data to the property
-            AllMenu.Count = SomeCount;
-            //test that they are the same
-            Assert.AreEqual(AllMenu.Count, SomeCount);
-        }
+        
 
         [TestMethod]
         public void ThisMenuItemPropertyOK()
