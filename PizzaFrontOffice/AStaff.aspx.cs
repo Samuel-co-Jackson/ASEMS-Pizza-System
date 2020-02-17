@@ -15,13 +15,28 @@ public partial class AStaff : System.Web.UI.Page
 
     protected void btnSave_Click1(object sender, EventArgs e)
     {
-        //create a new instance of clsStaff
-        clsStaff AStaff = new clsStaff();
-        //capture the staff name
-        AStaff.staffName = txtName.Text;
-        //store the name in the session object
-        Session["AStaff"] = AStaff;
-        //redirect to the viewer page
-        Response.Redirect("StaffViewer.aspx");
+        Add();
+        Response.Redirect("StaffList.aspx");
+    }
+
+    //function for adding new staff records
+
+    void Add()
+    {
+        clsStaffCollection StaffList = new clsStaffCollection();
+        String Error = ""; //StaffList.Valid(txtName.Text, txtAddress.Text, txtNotices.Text);
+        if(Error == "")
+        {
+            StaffList.ThisStaff.staffName = txtName.Text;
+            StaffList.ThisStaff.staffAddress = txtName.Text;
+            StaffList.ThisStaff.staffRoleId = ddlRole.SelectedIndex;
+            StaffList.ThisStaff.staffHiredOn = DateTime.Now;
+            StaffList.Add();
+            Response.Redirect("StaffList.aspx");
+        }
+        else
+        {
+            lblError.Text = "There were problems with the data entered: " + Error;
+        }
     }
 }
