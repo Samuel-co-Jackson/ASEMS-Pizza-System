@@ -13,26 +13,24 @@ namespace PizzaClasses
 
         public clsStaffCollection()
         {
-            //create the items of test data
-            clsStaff testStaff = new clsStaff();
-            //assign all the properties
-            testStaff.staffAddress = "Saffron Crossroads 80a, LE2 9BP Leicester";
-            testStaff.staffHiredOn = Convert.ToDateTime("02/02/2020");
-            testStaff.staffName = "John Hathorne";
-            testStaff.staffRoleId = 3;
-            testStaff.staffId = 15;
-            //add the item to the test list
-            mStaffList.Add(testStaff);
-            //re initialise the object for some new data
-            testStaff = new clsStaff();
-            //assign all the properties
-            testStaff.staffAddress = "Wellby Road 19, LE8 4BG, Leicester";
-            testStaff.staffHiredOn = Convert.ToDateTime("01/01/2020");
-            testStaff.staffName = "David Martin";
-            testStaff.staffRoleId = 2;
-            testStaff.staffId = 6;
-            //add the item to the test list
-            mStaffList.Add(testStaff);
+            Int32 Index = 0;
+            Int32 RecordCount = 0;
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblStaff_SelectAll");
+            RecordCount = DB.Count;
+            while( Index < RecordCount )
+            {
+                clsStaff AStaff = new clsStaff();
+
+                AStaff.staffId = Convert.ToInt32(DB.DataTable.Rows[Index]["staffId"]);
+                AStaff.staffName = Convert.ToString(DB.DataTable.Rows[Index]["staffName"]);
+                AStaff.staffAddress = Convert.ToString(DB.DataTable.Rows[Index]["staffAddress"]);
+                AStaff.staffHiredOn = Convert.ToDateTime(DB.DataTable.Rows[Index]["staffHiredOn"]);
+                AStaff.staffRoleId = Convert.ToInt32(DB.DataTable.Rows[Index]["staffRoleId"]);
+
+                mStaffList.Add(AStaff);
+                Index++;
+            }
         }
 
         //public property for the staff list
@@ -82,20 +80,15 @@ namespace PizzaClasses
         public int Add()
         {
             //adds a new record to the database
-            ////connect to the database
-            //clsDataConnection DB = new clsDataConnection();
-            ////set the parameters for the stored procedure
-            //DB.AddParameter("@StaffAddress", mThisStaff.staffAddress);
-            //DB.AddParameter("@StaffHiredOn", mThisStaff.staffHiredOn);
-            //DB.AddParameter("@StaffName", mThisStaff.staffName);
-            //DB.AddParameter("@StaffRoleId", mThisStaff.staffRoleId);
-            ////execute the query returning the primary key value
-            //return DB.Execute("sproc_tblStaff_Insert");
-            //set the primary key value of the new record
-            mThisStaff.staffId = 123;
-            //return the primary key of the new record
-            return mThisStaff.staffId;
-            
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StaffAddress", mThisStaff.staffAddress);
+            DB.AddParameter("@StaffHiredOn", mThisStaff.staffHiredOn);
+            DB.AddParameter("@StaffName", mThisStaff.staffName);
+            DB.AddParameter("@StaffRoleId", mThisStaff.staffRoleId);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblStaff_Insert");
         }
     }
 }

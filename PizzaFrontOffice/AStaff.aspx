@@ -5,6 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            position: absolute;
+            top: 325px;
+            left: 81px;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -27,6 +35,7 @@
             <asp:Button ID="btnSave" runat="server" style="z-index: 1; left: 492px; top: 346px; position: absolute" Text="Save" OnClick="btnSave_Click1" />
         </p>
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 824px; top: 345px; position: absolute" Text="Cancel" />
+        <asp:Label ID="lblError" runat="server" CssClass="auto-style1"></asp:Label>
     </form>
 </body>
 </html>
