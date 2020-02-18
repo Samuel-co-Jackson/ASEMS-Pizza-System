@@ -90,5 +90,12 @@ namespace PizzaClasses
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblStaff_Insert");
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@staffId", mThisStaff.staffId);
+            DB.Execute("sproc_tblStaff_Delete");
+        }
     }
 }

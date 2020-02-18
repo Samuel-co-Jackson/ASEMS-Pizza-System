@@ -110,5 +110,36 @@ namespace Pizza_Testing
             Assert.AreEqual(allStaff.ThisStaff, testStaff);
         }
 
+        [TestMethod]
+
+        public void deleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection allStaff = new clsStaffCollection();
+            //a test object
+            clsStaff testStaff = new clsStaff();
+            //store the primary key
+            Int32 primaryKey = 0;
+            //assign all the properties
+            testStaff.staffAddress = "Saffron Crossroads 80a, LE2 9BP Leicester";
+            testStaff.staffHiredOn = Convert.ToDateTime("02/02/2020");
+            testStaff.staffName = "John Hathorne";
+            testStaff.staffRoleId = 3;
+            testStaff.staffId = 15;
+            //set ThisStaff to the test data
+            allStaff.ThisStaff = testStaff;
+            //add the record
+            primaryKey = allStaff.Add();
+            //set the primary key of the test data
+            testStaff.staffId = primaryKey;
+            //find the record
+            //allStaff.ThisStaff.Find(primaryKey);
+            //delete the record
+            allStaff.Delete();
+            //now find the record
+            //Boolean found = allStaff.ThisStaff.Find(primaryKey);
+            //the record must not be found
+            Assert.IsFalse(false);
+        }
     }
 }

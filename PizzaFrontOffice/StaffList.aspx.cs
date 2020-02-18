@@ -28,8 +28,23 @@ public partial class StaffList : System.Web.UI.Page
     {
         clsStaffCollection Staff = new clsStaffCollection();
         lstStaff.DataSource = Staff.staffList;
-        lstStaff.DataValueField = "StaffId";
-        lstStaff.DataTextField = "StaffRoleId";
+        lstStaff.DataValueField = "staffId";
+        lstStaff.DataTextField = "staffName";
         lstStaff.DataBind();
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        Int32 staffId;
+        if(lstStaff.SelectedIndex != -1)
+        {
+            staffId = Convert.ToInt32(lstStaff.SelectedValue);
+            Session["staffId"] = staffId;
+            Response.Redirect("Delete.aspx");
+        }
+        else
+        {
+            lblError.Text = "You must first select a record to delete.";
+        }
     }
 }

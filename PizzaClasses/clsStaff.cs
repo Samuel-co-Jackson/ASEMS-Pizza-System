@@ -9,5 +9,10 @@ namespace PizzaClasses
         public int staffId { get; set; }
         public string staffName { get; set; }
         public int staffRoleId { get; set; }
+
+        public void Find(int staffId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
