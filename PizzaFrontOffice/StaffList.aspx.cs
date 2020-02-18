@@ -47,4 +47,19 @@ public partial class StaffList : System.Web.UI.Page
             lblError.Text = "You must first select a record to delete.";
         }
     }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 staffId;
+        if(lstStaff.SelectedIndex != -1)
+        {
+            staffId = Convert.ToInt32(lstStaff.SelectedValue);
+            Session["staffId"] = staffId;
+            Response.Redirect("AStaff.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a staff member to edit.";
+        }
+    }
 }
