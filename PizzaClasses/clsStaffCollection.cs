@@ -97,5 +97,16 @@ namespace PizzaClasses
             DB.AddParameter("@staffId", mThisStaff.staffId);
             DB.Execute("sproc_tblStaff_Delete");
         }
+
+        public void update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@staffId", mThisStaff.staffId);
+            DB.AddParameter("@staffAddress", mThisStaff.staffAddress);
+            DB.AddParameter("@staffHiredOn", mThisStaff.staffHiredOn);
+            DB.AddParameter("@staffName", mThisStaff.staffName);
+            DB.AddParameter("@staffRoleId", mThisStaff.staffRoleId);
+            DB.Execute("sproc_tblStaff_Update");
+        }
     }
 }
