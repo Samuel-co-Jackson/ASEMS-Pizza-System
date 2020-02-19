@@ -28,6 +28,7 @@
         <asp:TextBox ID="txtEmail" runat="server" style="z-index: 1; left: 204px; top: 327px; position: absolute; width: 155px"></asp:TextBox>
         <asp:Label ID="lblEmail" runat="server" style="z-index: 1; left: 96px; top: 328px; position: absolute; width: 94px" Text="Email"></asp:Label>
         <asp:TextBox ID="txtLastname" runat="server" style="z-index: 1; left: 209px; top: 115px; position: absolute; width: 155px"></asp:TextBox>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 96px; top: 370px; position: absolute; width: 269px"></asp:Label>
     </form>
 </body>
 </html>

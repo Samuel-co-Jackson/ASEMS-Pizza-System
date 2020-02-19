@@ -7,7 +7,26 @@ namespace PizzaClasses
     {
         //private data member for the list
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
-        public clsCustomer ThisCustomer { get; set; }
+        //private data member thisCustomer
+        clsCustomer mThisCustomer = new clsCustomer();
+
+        //public property for ThisCustomer
+        public clsCustomer ThisCustomer
+        {
+            get
+            {
+                //return the private data
+                return mThisCustomer;
+            }
+            set
+            {
+                //set the private data
+                mThisCustomer = value;
+            }
+        }
+
+
+        //public clsCustomer ThisCustomer { get; set; }
 
         //public property for the customer list
         public List<clsCustomer> CustomerList
@@ -57,7 +76,6 @@ namespace PizzaClasses
                 //create a blank customer
                 clsCustomer ACustomer = new clsCustomer();
                 //read in the fields from the current record
-                //AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
                 ACustomer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
                 ACustomer.Customerfirstname = Convert.ToString(DB.DataTable.Rows[Index]["Firstname"]);
                 ACustomer.Customerlastname = Convert.ToString(DB.DataTable.Rows[Index]["Lastname"]);
@@ -66,12 +84,32 @@ namespace PizzaClasses
                 ACustomer.Customercity = Convert.ToString(DB.DataTable.Rows[Index]["City"]);
                 ACustomer.Customerpostcode = Convert.ToString(DB.DataTable.Rows[Index]["Postcode"]);
                 ACustomer.Customeremail = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
-                ACustomer.Customerphoneno = Convert.ToInt64(DB.DataTable.Rows[Index]["Phone No"]);
+                ACustomer.Customerphoneno = Convert.ToInt64(DB.DataTable.Rows[Index]["PhoneNo"]);
                 //add the record to the private data member
                 mCustomerList.Add(ACustomer);
                 //point to the next record
                 Index++;
             }
+        }
+
+        //Add method
+        public int Add()
+        {
+            //adds a new record to the database based on the values of thisAddress
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            DB.AddParameter("@Firstname", mThisCustomer.Customerfirstname);
+            DB.AddParameter("@Lastname", mThisCustomer.Customerlastname);
+            DB.AddParameter("@HouseNo", mThisCustomer.Customerhouseno);
+            DB.AddParameter("@Streetname", mThisCustomer.Customerstreetname);
+            DB.AddParameter("@City", mThisCustomer.Customercity);
+            DB.AddParameter("@Postcode", mThisCustomer.Customerpostcode);
+            DB.AddParameter("@Email", mThisCustomer.Customeremail);
+            DB.AddParameter("@PhoneNo", mThisCustomer.Customerphoneno);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblCustomer_Insert");
         }
 
         //public List<clsCustomer> CustomerList { get; set; }

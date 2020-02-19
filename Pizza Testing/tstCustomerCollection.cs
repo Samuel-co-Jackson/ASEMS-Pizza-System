@@ -29,16 +29,15 @@ namespace Pizza_Testing
             //create the item of test data
             clsCustomer TestItem = new clsCustomer();
             //set its properties
-            TestItem.Active = true;
-            TestItem.CustomerID = 1;
-            TestItem.Customerfirstname = "Sufiyaan";
-            TestItem.Customerlastname = "Hussain";
-            TestItem.Customerhouseno = "34B";
-            TestItem.Customerstreetname = "Gateway House";
-            TestItem.Customercity = "Leicester";
-            TestItem.Customerpostcode = "LE1 5GH";
-            TestItem.Customerphoneno = 07806652976;
-            TestItem.Customeremail = "SufiyaanDMU@hotmail.co.uk";
+            TestItem.CustomerID = 5;
+            TestItem.Customerfirstname = "Paul";
+            TestItem.Customerlastname = "Pogba";
+            TestItem.Customerhouseno = "6";
+            TestItem.Customerstreetname = "Old Trafford";
+            TestItem.Customercity = "Manchester";
+            TestItem.Customerpostcode = "MU1 2FC";
+            TestItem.Customerphoneno = 17465389021;
+            TestItem.Customeremail = "PPogba6@hotmail.co.uk";
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -46,19 +45,6 @@ namespace Pizza_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllCustomers.CustomerList, TestList);
         }
-
-        //[TestMethod]
-        //public void CountPropertyOK()
-        //{
-        //    //create an instance of the clsCustomerCollection class
-        //    clsCustomerCollection AllCustomers = new clsCustomerCollection();
-        //    //create some test data to assign to the property
-        //    Int32 SomeCount = 2;
-        //    //assign the data to the property
-        //    AllCustomers.Count = SomeCount;
-        //    //test to see that the two values are the same
-        //    Assert.AreEqual(AllCustomers.Count, SomeCount);
-        //}
 
         [TestMethod]
         public void ThisCustomerPropertyOK()
@@ -68,7 +54,6 @@ namespace Pizza_Testing
             //create some test data to assign to the property
             clsCustomer TestCustomer = new clsCustomer();
             //set the properties of the test object
-            TestCustomer.Active = true;
             TestCustomer.CustomerID = 1;
             TestCustomer.Customerfirstname = "Sufiyaan";
             TestCustomer.Customerlastname = "Hussain";
@@ -84,43 +69,64 @@ namespace Pizza_Testing
             Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
         }
 
-        //[TestMethod]
-        //public void ListAndCountOK()
-        //{
-        //    //create an instance of the clsCustomerCollection class
-        //    clsCustomerCollection AllCustomers = new clsCustomerCollection();
-        //    //create some test data to assign to the property
-        //    //in this case the data needs to be a list of objects
-        //    List<clsCustomer> TestList = new List<clsCustomer>();
-        //    //add an item to the list
-        //    //create the item of test data
-        //    clsCustomer TestItem = new clsCustomer();
-        //    //set its properties
-        //    TestItem.Active = true;
-        //    TestItem.CustomerID = 1;
-        //    TestItem.Customerfirstname = "Sufiyaan";
-        //    TestItem.Customerlastname = "Hussain";
-        //    TestItem.Customerhouseno = "34B";
-        //    TestItem.Customerstreetname = "Gateway House";
-        //    TestItem.Customercity = "Leicester";
-        //    TestItem.Customerpostcode = "LE1 5GH";
-        //    TestItem.Customerphoneno = 07806652976;
-        //    TestItem.Customeremail = "SufiyaanDMU@hotmail.co.uk";
-        //    //add the item to the test list
-        //    TestList.Add(TestItem);
-        //    //assign the data to the property
-        //    AllCustomers.CustomerList = TestList;
-        //    //test to see that the two values are the same
-        //    Assert.AreEqual(AllCustomers.Count, TestList.Count);
-        //}
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            //create an instance of the clsCustomerCollection class
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
+            List<clsCustomer> TestList = new List<clsCustomer>();
+            //add an item to the list
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //set its properties
+            TestItem.CustomerID = 1;
+            TestItem.Customerfirstname = "Sufiyaan";
+            TestItem.Customerlastname = "Hussain";
+            TestItem.Customerhouseno = "34B";
+            TestItem.Customerstreetname = "Gateway House";
+            TestItem.Customercity = "Leicester";
+            TestItem.Customerpostcode = "LE1 5GH";
+            TestItem.Customerphoneno = 07806652976;
+            TestItem.Customeremail = "SufiyaanDMU@hotmail.co.uk";
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllCustomers.CustomerList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, TestList.Count);
+        }
 
-        //[TestMethod]
-        //public void TwoRecordsPresent()
-        //{
-        //    //create an instance of the clsCustomerCollection class
-        //    clsCustomerCollection AllCustomers = new clsCustomerCollection();
-        //    //test to see that the two values are the same
-        //    Assert.AreEqual(AllCustomers.Count, 2);
-        //}
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the clsCustomerCollection class
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.CustomerID = 11;
+            TestItem.Customerfirstname = "Paul";
+            TestItem.Customerlastname = "Pogba";
+            TestItem.Customerhouseno = "6";
+            TestItem.Customerstreetname = "Old Trafford";
+            TestItem.Customercity = "Manchester";
+            TestItem.Customerpostcode = "MU1 2FC";
+            TestItem.Customerphoneno = 17465389021;
+            TestItem.Customeremail = "PPogba6@hotmail.co.uk";
+            //set ThisCustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomers.Add();
+            //Set the primary key of the test data
+            TestItem.CustomerID = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
     }
 }
