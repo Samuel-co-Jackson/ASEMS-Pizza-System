@@ -81,5 +81,31 @@ namespace Pizza_Testing
             Assert.AreEqual(aStaff.staffRoleId, TestData);
             //sdadsad
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Int32 StaffId = 1;
+            Found = AStaff.Find(StaffId);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestStaffNotFound()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffId = 1;
+            Found = AStaff.Find(StaffId);
+            if(AStaff.staffId != StaffId)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 }
