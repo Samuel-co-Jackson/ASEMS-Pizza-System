@@ -20,7 +20,6 @@ namespace PizzaClasses
         String mHouseNumber;
         String mContactEmail;
         String mContactPhoneNo;
-        
         Boolean mOnHoliday;
         
         //Public properties
@@ -179,14 +178,15 @@ namespace PizzaClasses
                 //common attributes
                 mFirstName = Convert.ToString(DB.DataTable.Rows[0]["staffFirstName"]);
                 mLastName = Convert.ToString(DB.DataTable.Rows[0]["staffLastName"]);
-                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["staffDateOfBorth"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["staffDateOfBirth"]);
                 mDateOfHire = Convert.ToDateTime(DB.DataTable.Rows[0]["staffDateOfHire"]);
                 mPostCode = Convert.ToString(DB.DataTable.Rows[0]["staffPostCode"]);
                 mCityOfResidence = Convert.ToString(DB.DataTable.Rows[0]["staffCityOfResidence"]);
                 mStreetName = Convert.ToString(DB.DataTable.Rows[0]["staffStreetName"]);
-                mHouseNumber = Convert.ToString(DB.DataTable.Rows[0]["staffHouseNo"]);
+                mHouseNumber = Convert.ToString(DB.DataTable.Rows[0]["staffHouseNumber"]);
                 mContactEmail = Convert.ToString(DB.DataTable.Rows[0]["staffContactEmail"]);
                 mContactPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["staffContactPhoneNo"]);
+                mOnHoliday = Convert.ToBoolean(DB.DataTable.Rows[0]["staffOnHoliday"]);
                 //row was found so return true as "found" is positive, a member was found
                 return true;
             }

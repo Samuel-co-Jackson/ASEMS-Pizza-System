@@ -20,14 +20,24 @@ namespace PizzaClasses
             RecordCount = DB.Count;
             while( Index < RecordCount )
             {
+                //staff object to save data to
                 clsStaff AStaff = new clsStaff();
-
-                AStaff.staffId = Convert.ToInt32(DB.DataTable.Rows[Index]["staffId"]);
-                AStaff.staffName = Convert.ToString(DB.DataTable.Rows[Index]["staffName"]);
-                AStaff.staffAddress = Convert.ToString(DB.DataTable.Rows[Index]["staffAddress"]);
-                AStaff.staffHiredOn = Convert.ToDateTime(DB.DataTable.Rows[Index]["staffHiredOn"]);
-                AStaff.staffRoleId = Convert.ToInt32(DB.DataTable.Rows[Index]["staffRoleId"]);
-
+                //primary key
+                AStaff.staffId = Convert.ToInt32(DB.DataTable.Rows[0]["staffId"]);
+                //foreign key
+                AStaff.staffRoleId = Convert.ToInt32(DB.DataTable.Rows[0]["staffRoleId"]);
+                //common attributes
+                AStaff.firstName = Convert.ToString(DB.DataTable.Rows[0]["staffFirstName"]);
+                AStaff.lastName = Convert.ToString(DB.DataTable.Rows[0]["staffLastName"]);
+                AStaff.dateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["staffDateOfBirth"]);
+                AStaff.dateOfHire = Convert.ToDateTime(DB.DataTable.Rows[0]["staffDateOfHire"]);
+                AStaff.postCode = Convert.ToString(DB.DataTable.Rows[0]["staffPostCode"]);
+                AStaff.cityOfResidence = Convert.ToString(DB.DataTable.Rows[0]["staffCityOfResidence"]);
+                AStaff.streetName = Convert.ToString(DB.DataTable.Rows[0]["staffStreetName"]);
+                AStaff.houseNumber = Convert.ToString(DB.DataTable.Rows[0]["staffHouseNumber"]);
+                AStaff.contactEmail = Convert.ToString(DB.DataTable.Rows[0]["staffContactEmail"]);
+                AStaff.contactPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["staffContactPhoneNo"]);
+                AStaff.onHoliday = Convert.ToBoolean(DB.DataTable.Rows[0]["staffOnHoliday"]);
                 mStaffList.Add(AStaff);
                 Index++;
             }
@@ -76,36 +86,57 @@ namespace PizzaClasses
                 mThisStaff = value;
             }
         }
-
+        //adds a new record to the database
         public int Add()
         {
-            //adds a new record to the database
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@StaffAddress", mThisStaff.staffAddress);
-            DB.AddParameter("@StaffHiredOn", mThisStaff.staffHiredOn);
-            DB.AddParameter("@StaffName", mThisStaff.staffName);
-            DB.AddParameter("@StaffRoleId", mThisStaff.staffRoleId);
+            DB.AddParameter("@staffRoleId", mThisStaff.staffRoleId);
+            DB.AddParameter("@staffFirstName", mThisStaff.firstName);
+            DB.AddParameter("@staffLastName", mThisStaff.lastName);
+            DB.AddParameter("@staffDateOfBirth", mThisStaff.dateOfBirth);
+            DB.AddParameter("@staffDateOfHire", mThisStaff.dateOfHire);
+            DB.AddParameter("@staffPostCode", mThisStaff.postCode);
+            DB.AddParameter("@staffCityOfResidence", mThisStaff.cityOfResidence);
+            DB.AddParameter("@staffStreetName", mThisStaff.streetName);
+            DB.AddParameter("@staffHouseNumber", mThisStaff.houseNumber);
+            DB.AddParameter("@staffContactEmail", mThisStaff.contactEmail);
+            DB.AddParameter("@staffContactPhoneNo", mThisStaff.contactPhoneNo);
+            DB.AddParameter("@staffOnHoliday", mThisStaff.onHoliday);
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblStaff_Insert");
         }
 
         public void Delete()
         {
+            //connect to the database
             clsDataConnection DB = new clsDataConnection();
+            //add the only parameter which is the id of staff member to delete
             DB.AddParameter("@staffId", mThisStaff.staffId);
+            //proceed to delete the staff member
             DB.Execute("sproc_tblStaff_Delete");
         }
 
         public void update()
         {
+            //connect to the database
             clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
             DB.AddParameter("@staffId", mThisStaff.staffId);
-            DB.AddParameter("@staffAddress", mThisStaff.staffAddress);
-            DB.AddParameter("@staffHiredOn", mThisStaff.staffHiredOn);
-            DB.AddParameter("@staffName", mThisStaff.staffName);
             DB.AddParameter("@staffRoleId", mThisStaff.staffRoleId);
+            DB.AddParameter("@staffFirstName", mThisStaff.firstName);
+            DB.AddParameter("@staffLastName", mThisStaff.lastName);
+            DB.AddParameter("@staffDateOfBirth", mThisStaff.dateOfBirth);
+            DB.AddParameter("@staffDateOfHire", mThisStaff.dateOfHire);
+            DB.AddParameter("@staffPostCode", mThisStaff.postCode);
+            DB.AddParameter("@staffCityOfResidence", mThisStaff.cityOfResidence);
+            DB.AddParameter("@staffStreetName", mThisStaff.streetName);
+            DB.AddParameter("@staffHouseNumber", mThisStaff.houseNumber);
+            DB.AddParameter("@staffContactEmail", mThisStaff.contactEmail);
+            DB.AddParameter("@staffContactPhoneNo", mThisStaff.contactPhoneNo);
+            DB.AddParameter("@staffOnHoliday", mThisStaff.onHoliday);
+            //update the record
             DB.Execute("sproc_tblStaff_Update");
         }
     }

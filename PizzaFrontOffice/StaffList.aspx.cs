@@ -29,7 +29,7 @@ public partial class StaffList : System.Web.UI.Page
         clsStaffCollection Staff = new clsStaffCollection();
         lstStaff.DataSource = Staff.staffList;
         lstStaff.DataValueField = "staffId";
-        lstStaff.DataTextField = "staffName";
+        lstStaff.DataTextField = "lastName";
         lstStaff.DataBind();
     }
 
@@ -40,7 +40,7 @@ public partial class StaffList : System.Web.UI.Page
         {
             staffId = Convert.ToInt32(lstStaff.SelectedValue);
             Session["staffId"] = staffId;
-            Response.Redirect("Delete.aspx");
+            Response.Redirect("StaffDelete.aspx");
         }
         else
         {

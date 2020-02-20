@@ -27,4 +27,9 @@ public partial class StaffDelete : System.Web.UI.Page
         DeleteStaff();
         Response.Redirect("StaffList.aspx");
     }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffList.aspx");
+    }
 }
