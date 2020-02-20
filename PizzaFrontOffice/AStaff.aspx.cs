@@ -26,9 +26,18 @@ public partial class AStaff : System.Web.UI.Page
     {
         clsStaffCollection StaffList = new clsStaffCollection();
         StaffList.ThisStaff.Find(staffId);
-        txtName.Text = StaffList.ThisStaff.staffName;
-        txtAddress.Text = StaffList.ThisStaff.staffAddress;
         ddlRole.SelectedIndex = StaffList.ThisStaff.staffRoleId;
+        txtFirstName.Text = StaffList.ThisStaff.firstName;
+        txtLastName.Text = StaffList.ThisStaff.lastName;
+        txtDOB.Text = Convert.ToString(StaffList.ThisStaff.dateOfBirth);
+        txtDOH.Text = Convert.ToString(StaffList.ThisStaff.dateOfHire);
+        txtPostcode.Text = StaffList.ThisStaff.postCode;
+        txtCity.Text = StaffList.ThisStaff.cityOfResidence;
+        txtStreet.Text = StaffList.ThisStaff.streetName;
+        txtHouseNo.Text = StaffList.ThisStaff.houseNumber;
+        txtEmail.Text = StaffList.ThisStaff.contactEmail;
+        txtPhone.Text = StaffList.ThisStaff.contactPhoneNo;
+        chkHoliday.Checked = StaffList.ThisStaff.onHoliday;
     }
 
     protected void btnSave_Click1(object sender, EventArgs e)
@@ -37,7 +46,7 @@ public partial class AStaff : System.Web.UI.Page
         {
             Add();
         }
-            else
+        else
         {
             Update();
         }
@@ -51,10 +60,18 @@ public partial class AStaff : System.Web.UI.Page
         String Error = ""; //StaffList.Valid(txtName.Text, txtAddress.Text, txtNotices.Text);
         if(Error == "")
         {
-            StaffList.ThisStaff.staffName = txtName.Text;
-            StaffList.ThisStaff.staffAddress = txtName.Text;
             StaffList.ThisStaff.staffRoleId = ddlRole.SelectedIndex;
-            StaffList.ThisStaff.staffHiredOn = DateTime.Now;
+            StaffList.ThisStaff.firstName = txtFirstName.Text;
+            StaffList.ThisStaff.lastName = txtLastName.Text;
+            StaffList.ThisStaff.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
+            StaffList.ThisStaff.dateOfHire = Convert.ToDateTime(txtDOH.Text);
+            StaffList.ThisStaff.postCode = txtPostcode.Text;
+            StaffList.ThisStaff.cityOfResidence = txtCity.Text;
+            StaffList.ThisStaff.streetName = txtStreet.Text;
+            StaffList.ThisStaff.houseNumber = txtHouseNo.Text;
+            StaffList.ThisStaff.contactEmail = txtEmail.Text;
+            StaffList.ThisStaff.contactPhoneNo = txtPhone.Text;
+            StaffList.ThisStaff.onHoliday = chkHoliday.Checked;
             StaffList.Add();
             Response.Redirect("StaffList.aspx");
         }
@@ -71,10 +88,18 @@ public partial class AStaff : System.Web.UI.Page
         if(Error == "")
         {
             StaffList.ThisStaff.Find(staffId);
-            StaffList.ThisStaff.staffName = txtName.Text;
-            StaffList.ThisStaff.staffAddress = txtAddress.Text;
             StaffList.ThisStaff.staffRoleId = ddlRole.SelectedIndex;
-            StaffList.ThisStaff.staffHiredOn = DateTime.Now;
+            StaffList.ThisStaff.firstName = txtFirstName.Text;
+            StaffList.ThisStaff.lastName = txtLastName.Text;
+            StaffList.ThisStaff.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
+            StaffList.ThisStaff.dateOfHire = Convert.ToDateTime(txtDOH.Text);
+            StaffList.ThisStaff.postCode = txtPostcode.Text;
+            StaffList.ThisStaff.cityOfResidence = txtCity.Text;
+            StaffList.ThisStaff.streetName = txtStreet.Text;
+            StaffList.ThisStaff.houseNumber = txtHouseNo.Text;
+            StaffList.ThisStaff.contactEmail = txtEmail.Text;
+            StaffList.ThisStaff.contactPhoneNo = txtPhone.Text;
+            StaffList.ThisStaff.onHoliday = chkHoliday.Checked;
             StaffList.update();
             Response.Redirect("StaffList.aspx");
         }
@@ -82,5 +107,15 @@ public partial class AStaff : System.Web.UI.Page
         {
             lblError.Text = "There was problem with data entered: " + Error;
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffList.aspx");
+    }
+
+    protected void btnSetDate_Click(object sender, EventArgs e)
+    {
+        txtDOH.Text = Convert.ToString(DateTime.Now);
     }
 }

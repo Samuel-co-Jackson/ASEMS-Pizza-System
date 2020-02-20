@@ -12,7 +12,7 @@
         </div>
         <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 84px; top: 112px; position: absolute" Text="Are you sure you want to delete this staff member?"></asp:Label>
         <asp:Button ID="btnYes" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 128px; top: 155px; position: absolute" Text="Yes" />
-        <asp:Button ID="btnNo" runat="server" style="z-index: 1; left: 223px; top: 156px; position: absolute" Text="No" />
+        <asp:Button ID="btnNo" runat="server" style="z-index: 1; left: 223px; top: 156px; position: absolute" Text="No" OnClick="btnNo_Click" />
     </form>
 </body>
 </html>

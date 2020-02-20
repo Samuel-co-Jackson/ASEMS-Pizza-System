@@ -17,29 +17,29 @@ namespace Pizza_Testing
         }
 
         [TestMethod]
-        public void staffAddressPropertyOK()
+        public void staffPostcodePropertyOK()
         {
             //create an instance of the class we want to create
             clsStaff aStaff = new clsStaff();
             //create some test data to assign to the property
-            String TestData = "Saffron Crossroads 16, Leicester LE2 8BA";
+            String TestData = "LE2 8BA";
             //assign the data to the property
-            aStaff.staffAddress = TestData;
+            aStaff.postCode = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.staffAddress, TestData);
+            Assert.AreEqual(aStaff.postCode, TestData);
         }
 
         [TestMethod]
-        public void staffHiredOnPropertyOK()
+        public void staffHireDatePropertyOK()
         {
             //create an instance of the class we want to create
             clsStaff aStaff = new clsStaff();
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            aStaff.staffHiredOn = TestData;
+            aStaff.dateOfHire = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.staffHiredOn, TestData);
+            Assert.AreEqual(aStaff.dateOfHire, TestData);
         }
 
         [TestMethod]
@@ -56,16 +56,16 @@ namespace Pizza_Testing
         }
 
         [TestMethod]
-        public void staffNamePropertyOK()
+        public void staffFirstNamePropertyOK()
         {
             //create an instance of the class we want to create
             clsStaff aStaff = new clsStaff();
             //create some test data to assign to the property
-            String TestData = "John Hathorne";
+            String TestData = "John";
             //assign the data to the property
-            aStaff.staffName = TestData;
+            aStaff.firstName = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.staffName, TestData);
+            Assert.AreEqual(aStaff.firstName, TestData);
         }
 
         [TestMethod]
@@ -79,7 +79,6 @@ namespace Pizza_Testing
             aStaff.staffRoleId = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(aStaff.staffRoleId, TestData);
-            //sdadsad
         }
 
         [TestMethod]
@@ -87,7 +86,7 @@ namespace Pizza_Testing
         {
             clsStaff AStaff = new clsStaff();
             Boolean Found = false;
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
             Found = AStaff.Find(StaffId);
             Assert.IsTrue(Found);
         }
@@ -98,7 +97,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
             Found = AStaff.Find(StaffId);
             if(AStaff.staffId != StaffId)
             {
