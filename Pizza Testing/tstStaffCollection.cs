@@ -27,11 +27,19 @@ namespace Pizza_Testing
             //a test object
             clsStaff testStaff = new clsStaff();
             //assign all the properties
-            testStaff.staffAddress = "Saffron Crossroads 80a, LE2 9BP Leicester";
-            testStaff.staffHiredOn = Convert.ToDateTime("02/02/2020");
-            testStaff.staffName = "John Hathorne";
-            testStaff.staffRoleId = 3;
             testStaff.staffId = 15;
+            testStaff.firstName = "John";
+            testStaff.lastName = "Hathorne";
+            testStaff.dateOfBirth = "25/09/1996";
+            testStaff.dateOfHire = "14/02/2020";
+            testStaff.staffRoleId = 3;
+            testStaff.postCode = "LE2 8BA";
+            testStaff.cityOfResidence = "Leicester";
+            testStaff.streetName = "Saffron Crossroads";
+            testStaff.houseNumber = "17a";
+            testStaff.onHoliday = false;
+            testStaff.contactEmail = "John.Hathorne@example.mail";
+            testStaff.contactPhoneNo = "+4492381038919";
             //add the test object to the list
             TestList.Add(testStaff);
             //assign the list to the collection class
@@ -57,7 +65,6 @@ namespace Pizza_Testing
             allStaff.ThisStaff = testStaff;
             //test to see that the two values are the same
             Assert.AreEqual(allStaff.ThisStaff, testStaff);
-            //asdassad
         }
 
         [TestMethod]
