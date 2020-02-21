@@ -46,6 +46,8 @@
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsMenuCollection.cs" />
+    <Compile Include="clsRole.cs" />
+    <Compile Include="clsRoleCollection.cs" />
     <Compile Include="clsStaffCollection.cs" />
     <Compile Include="clsStock.cs" />
     <Compile Include="clsOrder.cs" />

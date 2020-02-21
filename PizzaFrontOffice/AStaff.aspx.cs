@@ -14,7 +14,7 @@ public partial class AStaff : System.Web.UI.Page
         staffId = Convert.ToInt32(Session["staffId"]);
         if(IsPostBack == false)
         {
-            //DisplayRoles(); FILL IN THE ROLES
+            DisplayRoles();
             if(staffId != -1)
             {
                 DisplayStaff();
@@ -38,6 +38,15 @@ public partial class AStaff : System.Web.UI.Page
         txtEmail.Text = StaffList.ThisStaff.contactEmail;
         txtPhone.Text = StaffList.ThisStaff.contactPhoneNo;
         chkHoliday.Checked = StaffList.ThisStaff.onHoliday;
+    }
+
+    private void DisplayRoles()
+    {
+        clsRoleCollection Roles = new clsRoleCollection();
+        ddlRole.DataSource = Roles.allRoles;
+        ddlRole.DataValueField = "roleId";
+        ddlRole.DataTextField = "roleName";
+        ddlRole.DataBind();
     }
 
     protected void btnSave_Click1(object sender, EventArgs e)
