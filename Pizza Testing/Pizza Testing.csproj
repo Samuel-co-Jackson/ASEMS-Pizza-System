@@ -60,6 +60,8 @@
     <Compile Include="tstStaff.cs" />
     <Compile Include="tstMenu.cs" />
     <Compile Include="tstStockCollection.cs" />
+    <Compile Include="tstRole.cs" />
+    <Compile Include="tstRoleCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
