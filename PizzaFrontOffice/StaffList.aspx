@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:TextBox ID="TextBox1" runat="server" style="z-index: 1; left: 282px; top: 301px; position: absolute"></asp:TextBox>
         </div>
         <asp:ListBox ID="lstStaff" runat="server" style="z-index: 1; left: 53px; top: 49px; position: absolute; height: 189px; width: 313px"></asp:ListBox>
         <p>
