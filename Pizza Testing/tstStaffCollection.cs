@@ -232,5 +232,47 @@ namespace Pizza_Testing
             //check if the data matches
             Assert.AreEqual(allStaff.ThisStaff, testStaff);
         }
+
+        [TestMethod]
+        public void ReportByLastNameMethodOK()
+        {
+            clsStaffCollection allStaff = new clsStaffCollection();
+            clsStaffCollection filteredStaff = new clsStaffCollection();
+            filteredStaff.ReportByLastName("");
+            Assert.AreEqual(allStaff.Count, filteredStaff.Count);
+        }
+
+        public void ReportByLastNameNoneFound()
+        {
+            clsStaffCollection filteredStaff = new clsStaffCollection();
+            filteredStaff.ReportByLastName("ASPSPASPAPS");
+            Assert.AreEqual(0, filteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByLastNameTestDataFound()
+        {
+            clsStaffCollection filteredStaff = new clsStaffCollection();
+            Boolean OK = true;
+            filteredStaff.ReportByLastName("Brickzzz");
+            if(filteredStaff.Count == 2)
+            {
+                if(filteredStaff.staffList[0].staffId != 8)
+                {
+                    OK = false;
+                }
+
+                if(filteredStaff.staffList[1].staffId != 10)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
     }
 }

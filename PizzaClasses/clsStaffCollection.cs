@@ -13,34 +13,9 @@ namespace PizzaClasses
 
         public clsStaffCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblStaff_SelectAll");
-            RecordCount = DB.Count;
-            while( Index < RecordCount )
-            {
-                //staff object to save data to
-                clsStaff AStaff = new clsStaff();
-                //primary key
-                AStaff.staffId = Convert.ToInt32(DB.DataTable.Rows[0]["staffId"]);
-                //foreign key
-                AStaff.staffRoleId = Convert.ToInt32(DB.DataTable.Rows[0]["staffRoleId"]);
-                //common attributes
-                AStaff.firstName = Convert.ToString(DB.DataTable.Rows[0]["staffFirstName"]);
-                AStaff.lastName = Convert.ToString(DB.DataTable.Rows[0]["staffLastName"]);
-                AStaff.dateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["staffDateOfBirth"]);
-                AStaff.dateOfHire = Convert.ToDateTime(DB.DataTable.Rows[0]["staffDateOfHire"]);
-                AStaff.postCode = Convert.ToString(DB.DataTable.Rows[0]["staffPostCode"]);
-                AStaff.cityOfResidence = Convert.ToString(DB.DataTable.Rows[0]["staffCityOfResidence"]);
-                AStaff.streetName = Convert.ToString(DB.DataTable.Rows[0]["staffStreetName"]);
-                AStaff.houseNumber = Convert.ToString(DB.DataTable.Rows[0]["staffHouseNumber"]);
-                AStaff.contactEmail = Convert.ToString(DB.DataTable.Rows[0]["staffContactEmail"]);
-                AStaff.contactPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["staffContactPhoneNo"]);
-                AStaff.onHoliday = Convert.ToBoolean(DB.DataTable.Rows[0]["staffOnHoliday"]);
-                mStaffList.Add(AStaff);
-                Index++;
-            }
+            PopulateArray(DB);
         }
 
         //public property for the staff list
@@ -138,6 +113,45 @@ namespace PizzaClasses
             DB.AddParameter("@staffOnHoliday", mThisStaff.onHoliday);
             //update the record
             DB.Execute("sproc_tblStaff_Update");
+        }
+
+        public void ReportByLastName(String lastName)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@lastName", lastName);
+            DB.Execute("sproc_tblStaff_FilterByLastName");
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount = 0;
+            RecordCount = DB.Count;
+            mStaffList = new List<clsStaff>();
+            while (Index < RecordCount)
+            {
+                //staff object to save data to
+                clsStaff AStaff = new clsStaff();
+                //primary key
+                AStaff.staffId = Convert.ToInt32(DB.DataTable.Rows[Index]["staffId"]);
+                //foreign key
+                AStaff.staffRoleId = Convert.ToInt32(DB.DataTable.Rows[Index]["staffRoleId"]);
+                //common attributes
+                AStaff.firstName = Convert.ToString(DB.DataTable.Rows[Index]["staffFirstName"]);
+                AStaff.lastName = Convert.ToString(DB.DataTable.Rows[Index]["staffLastName"]);
+                AStaff.dateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["staffDateOfBirth"]);
+                AStaff.dateOfHire = Convert.ToDateTime(DB.DataTable.Rows[Index]["staffDateOfHire"]);
+                AStaff.postCode = Convert.ToString(DB.DataTable.Rows[Index]["staffPostCode"]);
+                AStaff.cityOfResidence = Convert.ToString(DB.DataTable.Rows[Index]["staffCityOfResidence"]);
+                AStaff.streetName = Convert.ToString(DB.DataTable.Rows[Index]["staffStreetName"]);
+                AStaff.houseNumber = Convert.ToString(DB.DataTable.Rows[Index]["staffHouseNumber"]);
+                AStaff.contactEmail = Convert.ToString(DB.DataTable.Rows[Index]["staffContactEmail"]);
+                AStaff.contactPhoneNo = Convert.ToString(DB.DataTable.Rows[Index]["staffContactPhoneNo"]);
+                AStaff.onHoliday = Convert.ToBoolean(DB.DataTable.Rows[Index]["staffOnHoliday"]);
+                mStaffList.Add(AStaff);
+                Index++;
+            }
         }
     }
 }
