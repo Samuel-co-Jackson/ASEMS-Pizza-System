@@ -190,7 +190,7 @@ namespace Pizza_Testing
         {
             clsStaff AStaff = new clsStaff();
             Boolean Found = false;
-            Int32 StaffId = 2;
+            Int32 StaffId = 8;
             Found = AStaff.Find(StaffId);
             Assert.IsTrue(Found);
         }
@@ -201,7 +201,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 2;
+            Int32 StaffId = 8;
             Found = AStaff.Find(StaffId);
             if(AStaff.staffId != StaffId)
             {
