@@ -22,7 +22,7 @@
         <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 51px; top: 162px; position: absolute; bottom: 514px;" Text="First name:"></asp:Label>
         <asp:Label ID="lblLastName" runat="server" style="z-index: 1; left: 51px; top: 200px; position: absolute" Text="Last name:"></asp:Label>
         <asp:Label ID="lblRole" runat="server" style="z-index: 1; left: 746px; top: 162px; position: absolute" Text="ASEMS Pizza role:"></asp:Label>
-        <asp:DropDownList ID="ddlRole" runat="server" style="z-index: 1; left: 900px; top: 162px; position: absolute; bottom: 313px;" TabIndex="9">
+        <asp:DropDownList ID="ddlRole" runat="server" style="z-index: 1; left: 900px; top: 162px; position: absolute; bottom: 313px; width: 78px;" TabIndex="9">
         </asp:DropDownList>
         <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; left: 146px; top: 200px; position: absolute" TabIndex="2"></asp:TextBox>
         <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 146px; top: 162px; position: absolute" TabIndex="1"></asp:TextBox>

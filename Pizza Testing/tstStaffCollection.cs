@@ -136,7 +136,7 @@ namespace Pizza_Testing
             //set the primary key of the test data
             testStaff.staffId = primaryKey;
             //find the record
-            //allStaff.ThisStaff.Find(primaryKey);
+            allStaff.ThisStaff.Find(primaryKey);
             //test to see that the two values are the same
             Assert.AreEqual(allStaff.ThisStaff, testStaff);
         }
@@ -172,11 +172,11 @@ namespace Pizza_Testing
             //set the primary key of the test data
             testStaff.staffId = primaryKey;
             //find the record
-            //allStaff.ThisStaff.Find(primaryKey);
+            allStaff.ThisStaff.Find(primaryKey);
             //delete the record
             allStaff.Delete();
             //now find the record
-            //Boolean found = allStaff.ThisStaff.Find(primaryKey);
+            Boolean found = allStaff.ThisStaff.Find(primaryKey);
             //the record must not be found
             Assert.IsFalse(false);
         }
@@ -210,7 +210,6 @@ namespace Pizza_Testing
             primaryKey = allStaff.Add();
             //set the primary key of the test data
             testStaff.staffId = primaryKey;
-
             //assign all the properties
             testStaff.firstName = "John";
             testStaff.lastName = "Hathorne";
@@ -224,12 +223,12 @@ namespace Pizza_Testing
             testStaff.onHoliday = false;
             testStaff.contactEmail = "John.Hathorne@example.mail";
             testStaff.contactPhoneNo = "+4492381038919";
-
+            //assign the test object to the real object
             allStaff.ThisStaff = testStaff;
-
+            //update data of the real object
             allStaff.update();
             //find the record
-            //allStaff.ThisStaff.Find(primaryKey);
+            allStaff.ThisStaff.Find(primaryKey);
             //check if the data matches
             Assert.AreEqual(allStaff.ThisStaff, testStaff);
         }
