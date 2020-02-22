@@ -42,14 +42,14 @@
         <asp:Label ID="lblHoliday" runat="server" style="z-index: 1; left: 746px; top: 276px; position: absolute" Text="On holiday:"></asp:Label>
         <asp:TextBox ID="txtDOB" runat="server" style="z-index: 1; left: 146px; top: 238px; position: absolute" TabIndex="3"></asp:TextBox>
         <asp:TextBox ID="txtDOH" runat="server" style="z-index: 1; left: 146px; top: 276px; position: absolute" TabIndex="4"></asp:TextBox>
-        <asp:Button ID="btnSetDate" runat="server" style="z-index: 1; left: 146px; top: 310px; position: absolute; width: 128px; height: 22px;" Text="Set to today" OnClick="btnSetDate_Click" />
+        <asp:Button ID="btnSetDate" runat="server" style="z-index: 1; left: 146px; top: 310px; position: absolute; width: 174px; height: 22px;" Text="Set to today" OnClick="btnSetDate_Click" />
         <asp:TextBox ID="txtCity" runat="server" style="z-index: 1; left: 507px; top: 161px; position: absolute" TabIndex="5"></asp:TextBox>
         <asp:TextBox ID="txtStreet" runat="server" style="z-index: 1; left: 507px; top: 200px; position: absolute" TabIndex="6"></asp:TextBox>
         <asp:TextBox ID="txtHouseNo" runat="server" style="z-index: 1; left: 507px; top: 238px; position: absolute" TabIndex="7"></asp:TextBox>
         <asp:TextBox ID="txtPostcode" runat="server" style="z-index: 1; left: 507px; top: 276px; position: absolute" TabIndex="8"></asp:TextBox>
         <asp:TextBox ID="txtEmail" runat="server" style="z-index: 1; left: 900px; top: 200px; position: absolute" TabIndex="10"></asp:TextBox>
         <asp:TextBox ID="txtPhone" runat="server" style="z-index: 1; left: 900px; top: 238px; position: absolute" TabIndex="11"></asp:TextBox>
-        <asp:CheckBox ID="chkHoliday" runat="server" style="z-index: 1; left: 900px; top: 276px; position: absolute" TabIndex="12" />
+        <asp:CheckBox ID="chkHoliday" runat="server" style="z-index: 1; left: 900px; top: 276px; position: absolute; width: 103px;" TabIndex="12" />
     </form>
 </body>
 </html>

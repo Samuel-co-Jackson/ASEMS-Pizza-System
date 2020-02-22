@@ -18,7 +18,7 @@ namespace Pizza_Testing
         }
 
         [TestMethod]
-        public void staffCollectionListOK()
+        public void StaffCollectionListOK()
         {
             //create an instance of the class we want to create
             clsStaffCollection allStaff = new clsStaffCollection();
@@ -49,7 +49,7 @@ namespace Pizza_Testing
         }
         [TestMethod]
 
-        public void thisStaffPropertyOK()
+        public void ThisStaffPropertyOK()
         {
             //create an instance of the class we want to create
             clsStaffCollection allStaff = new clsStaffCollection();
@@ -76,7 +76,7 @@ namespace Pizza_Testing
         }
 
         [TestMethod]
-        public void listAndCountOK()
+        public void ListAndCountOK()
         {
             //create an instance of the class we want to create
             clsStaffCollection allStaff = new clsStaffCollection();
@@ -107,7 +107,7 @@ namespace Pizza_Testing
         }
 
         [TestMethod]
-        public void addMethodOK()
+        public void AddMethodOK()
         {
             //create an instance of the class we want to create
             clsStaffCollection allStaff = new clsStaffCollection();
@@ -139,11 +139,13 @@ namespace Pizza_Testing
             allStaff.ThisStaff.Find(primaryKey);
             //test to see that the two values are the same
             Assert.AreEqual(allStaff.ThisStaff, testStaff);
+
+            allStaff.Delete();
         }
 
         [TestMethod]
 
-        public void deleteMethodOK()
+        public void DeleteMethodOK()
         {
             //create an instance of the class we want to create
             clsStaffCollection allStaff = new clsStaffCollection();
@@ -183,7 +185,7 @@ namespace Pizza_Testing
 
         [TestMethod]
 
-        public void updateMethodOK()
+        public void UpdateMethodOK()
         {
             //create an instance of the class we want to create
             clsStaffCollection allStaff = new clsStaffCollection();
@@ -231,6 +233,8 @@ namespace Pizza_Testing
             allStaff.ThisStaff.Find(primaryKey);
             //check if the data matches
             Assert.AreEqual(allStaff.ThisStaff, testStaff);
+
+            allStaff.Delete();
         }
 
         [TestMethod]

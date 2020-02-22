@@ -12,7 +12,7 @@ public partial class StaffList : System.Web.UI.Page
     {
         if(IsPostBack == false)
         {
-            DisplayStaff();
+            DisplayStaff("");
         }
     }
 
@@ -24,39 +24,41 @@ public partial class StaffList : System.Web.UI.Page
         Response.Redirect("AStaff.aspx");
     }
 
-    void DisplayStaff()
+    void DisplayStaff(String lastNameFilter)
     {
+        
+        //lstStaff.DataSource = Staff.staffList;
+        //lstStaff.DataValueField = "staffId";
+        //lstStaff.DataTextField = "lastName";
+        //lstStaff.DataBind();
+        Int32 staffId;
+        String staffFirstName;
+        String staffLastName;
+        Int32 staffRoleId;
+        String staffRoleName;
+
         clsStaffCollection Staff = new clsStaffCollection();
+        clsRoleCollection allRoles = new clsRoleCollection();
+        Staff.ReportByLastName(lastNameFilter);
+
+        Int32 RecordCount;
+        Int32 Index = 0;
+        RecordCount = Staff.Count;
         lstStaff.Items.Clear();
-        lstStaff.DataSource = Staff.staffList;
-        lstStaff.DataValueField = "staffId";
-        lstStaff.DataTextField = "lastName";
-        lstStaff.DataBind();
-        //Int32 StudentNo;
-        //string StudentPNumber;
-        //string StudentFullName;
-        //Int32 StudentCourseNo;
 
-        //clsStudentCollection StudentList = new clsStudentCollection();
-        //StudentList.ReportByCourse(CourseFilter);
+        while (Index < RecordCount)
+        {
+            
+            staffId = Staff.staffList[Index].staffId;
+            staffFirstName = Staff.staffList[Index].firstName;
+            staffLastName = Staff.staffList[Index].lastName;
+            staffRoleId = Staff.staffList[Index].staffRoleId;
+            staffRoleName = allRoles.allRoles[staffRoleId].roleName;
 
-        //Int32 RecordCount;
-        //Int32 Index = 0;
-        //RecordCount = StudentList.Count;
-        //lstStudents.Items.Clear();
-
-        //while (Index < RecordCount)
-        //{
-        //    StudentNo = StudentList.StudentList[Index].StudentNo;
-        //    StudentPNumber = StudentList.StudentList[Index].StudentPNumber;
-        //    StudentFullName = StudentList.StudentList[Index].StudentFullName;
-        //    StudentCourseNo = StudentList.StudentList[Index].StudentCourseNo;
-
-        //    ListItem NewEntry = new ListItem(StudentFullName + " " + StudentPNumber, StudentNo.ToString());
-        //    lstStudents.Items.Add(NewEntry);
-        //    Index++;
-        //}
-        //return RecordCount;
+            ListItem NewEntry = new ListItem(staffFirstName + " " + staffLastName + " | " + staffRoleName, staffId.ToString());
+            lstStaff.Items.Add(NewEntry);
+            Index++;
+        }
     }
 
     protected void btnDelete_Click(object sender, EventArgs e)
@@ -91,28 +93,13 @@ public partial class StaffList : System.Web.UI.Page
 
     protected void btnDisplayAll_Click(object sender, EventArgs e)
     {
-        clsStaffCollection Staff = new clsStaffCollection();
-        Staff.ReportByLastName("");
-        lstStaff.Items.Clear();
-        lstStaff.DataSource = Staff.staffList;
-        lstStaff.DataValueField = "staffId";
-        lstStaff.DataTextField = "lastName";
-        lstStaff.DataBind();
+        //Removes any filtering by displaying just all staff (default)
+        DisplayStaff("");
     }
 
     protected void btnApply_Click(object sender, EventArgs e)
     {
-        clsStaffCollection Staff = new clsStaffCollection();
-        Staff.ReportByLastName(txtFilter.Text);
-        lstStaff.Items.Clear();
-        lstStaff.DataSource = Staff.staffList;
-        lstStaff.DataValueField = "staffId";
-        lstStaff.DataTextField = "lastName";
-        lstStaff.DataBind();
-    }
-
-    protected void lstStaff_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
+        //Displays all staff with last name that starts with the entered filter
+        DisplayStaff(txtFilter.Text);
     }
 }
