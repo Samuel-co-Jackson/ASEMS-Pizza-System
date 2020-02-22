@@ -12,9 +12,9 @@ namespace Pizza_Testing
         public void InstanceOK()
         {
             //create an instance
-            clsRoleCollection allRoles = new clsRoleCollection();
+            clsRoleCollection AllRoles = new clsRoleCollection();
             //check if the instance was created
-            Assert.IsNotNull(allRoles);
+            Assert.IsNotNull(AllRoles);
         }
 
         [TestMethod]

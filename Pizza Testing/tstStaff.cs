@@ -11,178 +11,178 @@ namespace Pizza_Testing
         public void InstanceOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //test to see that it exists
-            Assert.IsNotNull(aStaff);
+            Assert.IsNotNull(AStaff);
         }
 
         [TestMethod]
-        public void staffIdPropertyOK()
+        public void StaffIdPropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             Int32 TestData = 15;
             //assign the data to the property
-            aStaff.staffId = TestData;
+            AStaff.staffId = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.staffId, TestData);
+            Assert.AreEqual(AStaff.staffId, TestData);
         }
 
         [TestMethod]
-        public void staffRoleIdPropertyOK()
+        public void StaffRoleIdPropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             Int32 TestData = 2;
             //assign the data to the property
-            aStaff.staffRoleId = TestData;
+            AStaff.staffRoleId = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.staffRoleId, TestData);
+            Assert.AreEqual(AStaff.staffRoleId, TestData);
         }
 
         [TestMethod]
-        public void firstNamePropertyOK()
+        public void FirstNamePropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             String TestData = "John";
             //assign the data to the property
-            aStaff.firstName = TestData;
+            AStaff.firstName = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.firstName, TestData);
+            Assert.AreEqual(AStaff.firstName, TestData);
         }
 
         [TestMethod]
-        public void lastNamePropertyOK()
+        public void LastNamePropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             String TestData = "Hathorne";
             //assign the data to the property
-            aStaff.lastName = TestData;
+            AStaff.lastName = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.lastName, TestData);
+            Assert.AreEqual(AStaff.lastName, TestData);
         }
 
         [TestMethod]
-        public void dateOfBirthPropertyOK()
+        public void DateOfBirthPropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             DateTime TestData = Convert.ToDateTime("17/09/1992");
             //assign the data to the property
-            aStaff.dateOfBirth = TestData;
+            AStaff.dateOfBirth = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.dateOfBirth, TestData);
+            Assert.AreEqual(AStaff.dateOfBirth, TestData);
         }
 
         [TestMethod]
-        public void dateOfHirePropertyOK()
+        public void DateOfHirePropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now;
             //assign the data to the property
-            aStaff.dateOfHire = TestData;
+            AStaff.dateOfHire = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.dateOfHire, TestData);
+            Assert.AreEqual(AStaff.dateOfHire, TestData);
         }
 
         [TestMethod]
-        public void postcodePropertyOK()
+        public void PostcodePropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             String TestData = "LE2 8BA";
             //assign the data to the property
-            aStaff.postCode = TestData;
+            AStaff.postCode = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.postCode, TestData);
+            Assert.AreEqual(AStaff.postCode, TestData);
         }
 
         [TestMethod]
-        public void cityOfResidencePropertyOK()
+        public void CityOfResidencePropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             String TestData = "Leicester";
             //assign the data to the property
-            aStaff.cityOfResidence = TestData;
+            AStaff.cityOfResidence = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.cityOfResidence, TestData);
+            Assert.AreEqual(AStaff.cityOfResidence, TestData);
         }
 
         [TestMethod]
-        public void streetNamePropertyOK()
+        public void StreetNamePropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             String TestData = "New York Avenue";
             //assign the data to the property
-            aStaff.streetName = TestData;
+            AStaff.streetName = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.streetName, TestData);
+            Assert.AreEqual(AStaff.streetName, TestData);
         }
 
         [TestMethod]
-        public void houseNumberPropertyOK()
+        public void HouseNumberPropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             String TestData = "15b";
             //assign the data to the property
-            aStaff.houseNumber = TestData;
+            AStaff.houseNumber = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.houseNumber, TestData);
+            Assert.AreEqual(AStaff.houseNumber, TestData);
         }
 
         [TestMethod]
-        public void contactEmailPropertyOK()
+        public void ContactEmailPropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             String TestData = "Speedy@example.com";
             //assign the data to the property
-            aStaff.contactEmail = TestData;
+            AStaff.contactEmail = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.contactEmail, TestData);
+            Assert.AreEqual(AStaff.contactEmail, TestData);
         }
 
         [TestMethod]
-        public void contactPhoneNoPropertyOK()
+        public void ContactPhoneNoPropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             String TestData = "+4495673404219";
             //assign the data to the property
-            aStaff.contactPhoneNo = TestData;
+            AStaff.contactPhoneNo = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.contactPhoneNo, TestData);
+            Assert.AreEqual(AStaff.contactPhoneNo, TestData);
         }
 
         [TestMethod]
-        public void onHolidayPropertyOK()
+        public void OnHolidayPropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaff aStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
             Boolean TestData = false;
             //assign the data to the property
-            aStaff.onHoliday = TestData;
+            AStaff.onHoliday = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(aStaff.onHoliday, TestData);
+            Assert.AreEqual(AStaff.onHoliday, TestData);
         }
 
         [TestMethod]
