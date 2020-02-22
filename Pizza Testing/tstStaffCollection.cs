@@ -228,7 +228,7 @@ namespace Pizza_Testing
             //assign the test object to the real object
             AllStaff.ThisStaff = TestStaff;
             //update data of the real object
-            AllStaff.update();
+            AllStaff.Update();
             //find the record
             AllStaff.ThisStaff.Find(primaryKey);
             //check if the data matches
