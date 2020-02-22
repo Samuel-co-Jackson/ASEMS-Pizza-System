@@ -93,7 +93,7 @@ namespace PizzaClasses
             DB.Execute("sproc_tblStaff_Delete");
         }
 
-        public void update()
+        public void Update()
         {
             //connect to the database
             clsDataConnection DB = new clsDataConnection();

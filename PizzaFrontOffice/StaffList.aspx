@@ -11,7 +11,7 @@
         <div>
             <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 225px; top: 309px; position: absolute"></asp:TextBox>
         </div>
-        <asp:ListBox ID="lstStaff" runat="server" style="z-index: 1; left: 53px; top: 49px; position: absolute; height: 189px; width: 313px" OnSelectedIndexChanged="lstStaff_SelectedIndexChanged"></asp:ListBox>
+        <asp:ListBox ID="lstStaff" runat="server" style="z-index: 1; left: 53px; top: 49px; position: absolute; height: 189px; width: 313px"></asp:ListBox>
         <p>
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 474px; top: 140px; position: absolute"></asp:Label>
         </p>
