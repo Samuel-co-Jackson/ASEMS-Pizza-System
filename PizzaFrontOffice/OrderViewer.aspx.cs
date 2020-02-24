@@ -19,7 +19,7 @@ public partial class OrderViewer : System.Web.UI.Page
         //display the customer id for this entry
         Response.Write(AnOrder.CustomerID);
         //display the employee id for this entry
-        Response.Write(AnOrder.EmployeeID);
+        Response.Write(AnOrder.StaffID);
         //display the order date for this entry
         Response.Write(AnOrder.OrderDate);
         //display the order status for this entry
