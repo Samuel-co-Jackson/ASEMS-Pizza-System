@@ -7,7 +7,7 @@ namespace PizzaClasses
     {
         //private data member for the list
         List<clsOrder> mOrderList = new List<clsOrder>();
-        public clsOrder ThisOrder { get; set; }
+        clsOrder mThisOrder = new clsOrder();
 
         //public property for the order list
         public List<clsOrder> OrderList
@@ -21,6 +21,21 @@ namespace PizzaClasses
             {
                 //set the private data
                 mOrderList = value;
+            }
+        }
+
+        //public property for ThisOrder
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                //return the private data
+                return mThisOrder;
+            }
+            set
+            {
+                //set the private data
+                mThisOrder = value;
             }
         }
 
@@ -57,7 +72,7 @@ namespace PizzaClasses
                 //read in the feilds from the current record
                 AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
                 AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                AnOrder.EmployeeID = Convert.ToInt32(DB.DataTable.Rows[Index]["EmployeeID"]);
+                AnOrder.StaffID = Convert.ToInt32(DB.DataTable.Rows[Index]["EmployeeID"]);
                 AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
                 AnOrder.OrderStatus = Convert.ToString(DB.DataTable.Rows[Index]["OrderStatus"]);
                 //add the record to the private data memeber
@@ -65,9 +80,47 @@ namespace PizzaClasses
                 //point at the next record
                 Index++;
             }
+        }
 
+        public int Add()
+        {
+            //adds a new record to the database based on the values of mThisAddress
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderID", mThisOrder.OrderID);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@StaffID", mThisOrder.StaffID);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblOrder_Insert");
+        }
 
+        public void Delete()
+        {
+            //deletes the record pointed to by this database
+            //connect to the databse
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderID", mThisOrder.OrderID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_Delete");
+        }
 
+        public void Update()
+        {
+            //update an existing record based on the values of thisAddress
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderID", mThisOrder.OrderID);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@StaffID", mThisOrder.StaffID);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_Update");
         }
     }
 }

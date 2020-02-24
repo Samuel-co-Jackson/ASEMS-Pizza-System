@@ -52,9 +52,9 @@ namespace Pizza_Testing
             //create some test data to assign to the property
             Int32 TestData = 1;
             //assign the data to the property
-            AnOrder.EmployeeID = TestData;
+            AnOrder.StaffID = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.EmployeeID, TestData);
+            Assert.AreEqual(AnOrder.StaffID, TestData);
         }
 
         [TestMethod]
