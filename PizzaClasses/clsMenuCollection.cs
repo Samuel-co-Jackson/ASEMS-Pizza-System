@@ -8,6 +8,8 @@ namespace PizzaClasses
 
         //private data member for the list
         List<clsMenu> mMenuList = new List<clsMenu>();
+        //private data member thisMenu
+        clsMenu mThisMenu = new clsMenu();
 
         //public property for the menu list
         public List<clsMenu> MenuList
@@ -39,6 +41,20 @@ namespace PizzaClasses
 
         public clsMenu ThisMenuItem { get; set; }
 
+        public clsMenu ThisItem
+        {
+            get
+            {
+                //return the private data 
+                return mThisMenu;
+            }
+            set
+            {
+                //set the private data 
+                mThisMenu = value;
+            }
+        }
+
         //constructor for this class
         public clsMenuCollection()
         {
@@ -68,6 +84,20 @@ namespace PizzaClasses
                 //point at the next record
                 Index++;
             }
+        }
+
+        public int Add()
+        {
+            //add a new record to the database on the values of mThisMenu
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procudure
+            DB.AddParameter("@Name", mThisMenu.Name);
+            DB.AddParameter("@Description", mThisMenu.Description);
+            DB.AddParameter("@RecipeID", mThisMenu.RecipeID);
+            DB.AddParameter("@Price", mThisMenu.Price);
+            //execute the query returnng the primary key value
+            return DB.Execute("sproc_tblMenu_Insert");
         }
     }
 }
