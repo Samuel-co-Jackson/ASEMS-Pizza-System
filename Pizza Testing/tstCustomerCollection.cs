@@ -108,7 +108,37 @@ namespace Pizza_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.CustomerID = 11;
+            TestItem.Customerfirstname = "Anthony";
+            TestItem.Customerlastname = "Martial";
+            TestItem.Customerhouseno = "9";
+            TestItem.Customerstreetname = "Red Square";
+            TestItem.Customercity = "Manchester";
+            TestItem.Customerpostcode = "MU4 9BH";
+            TestItem.Customerphoneno = 12456546432;
+            TestItem.Customeremail = "TonyMartial50@hotmail.co.uk";
+            //set ThisCustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomers.Add();
+            //Set the primary key of the test data
+            TestItem.CustomerID = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the clsCustomerCollection class
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.CustomerID = 10;
             TestItem.Customerfirstname = "Paul";
             TestItem.Customerlastname = "Pogba";
             TestItem.Customerhouseno = "6";
@@ -125,8 +155,57 @@ namespace Pizza_Testing
             TestItem.CustomerID = PrimaryKey;
             //find the record
             AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //delete the record
+            AllCustomers.Delete();
+            //now find the record
+            Boolean Found = AllCustomers.ThisCustomer.Find(PrimaryKey);
             //test to see that the two values are the same
+            Assert.IsFalse(Found);
+        }
+
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the clsCustomerCollection class
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Customerfirstname = "Anthony";
+            TestItem.Customerlastname = "Martial";
+            TestItem.Customerhouseno = "9";
+            TestItem.Customerstreetname = "Red Square";
+            TestItem.Customercity = "Manchester";
+            TestItem.Customerpostcode = "MU4 9BH";
+            TestItem.Customerphoneno = 12456546432;
+            TestItem.Customeremail = "TonyMartial50@hotmail.co.uk";
+            //set ThisCustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomers.Add();
+            //Set the primary key of the test data
+            TestItem.CustomerID = PrimaryKey;
+            //modify the test data
+            TestItem.Customerfirstname = "Eliteone";
+            TestItem.Customerlastname = "Bang";
+            TestItem.Customerhouseno = "68";
+            TestItem.Customerstreetname = "Sixth Floor";
+            TestItem.Customercity = "Leicester";
+            TestItem.Customerpostcode = "LE4 0YT";
+            TestItem.Customerphoneno = 13578654360;
+            TestItem.Customeremail = "GWX32@hotmail.co.uk";
+            //set the record based on the test data
+            AllCustomers.ThisCustomer = TestItem;
+            //Update the record
+            AllCustomers.Update();
+            //now find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see ThisCustomer matches the test data
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
+
     }
 }

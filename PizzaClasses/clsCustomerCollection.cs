@@ -99,7 +99,7 @@ namespace PizzaClasses
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            //DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Firstname", mThisCustomer.Customerfirstname);
             DB.AddParameter("@Lastname", mThisCustomer.Customerlastname);
             DB.AddParameter("@HouseNo", mThisCustomer.Customerhouseno);
@@ -110,6 +110,36 @@ namespace PizzaClasses
             DB.AddParameter("@PhoneNo", mThisCustomer.Customerphoneno);
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblCustomer_Insert");
+        }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisCustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameter for the stored procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_Delete");
+        }
+
+        public void Update()
+        {
+            //update an existing record to the database based on the values of thisAddress
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            DB.AddParameter("@Firstname", mThisCustomer.Customerfirstname);
+            DB.AddParameter("@Lastname", mThisCustomer.Customerlastname);
+            DB.AddParameter("@HouseNo", mThisCustomer.Customerhouseno);
+            DB.AddParameter("@Streetname", mThisCustomer.Customerstreetname);
+            DB.AddParameter("@City", mThisCustomer.Customercity);
+            DB.AddParameter("@Postcode", mThisCustomer.Customerpostcode);
+            DB.AddParameter("@Email", mThisCustomer.Customeremail);
+            DB.AddParameter("@PhoneNo", mThisCustomer.Customerphoneno);
+            //execute the query returning the primary key value
+            DB.Execute("sproc_tblCustomer_Update");
         }
 
         //public List<clsCustomer> CustomerList { get; set; }
