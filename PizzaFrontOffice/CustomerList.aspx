@@ -16,8 +16,9 @@
         <asp:TextBox ID="txtEnterFirstname" runat="server" style="z-index: 1; left: 72px; top: 343px; position: absolute; width: 302px"></asp:TextBox>
         <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 73px; top: 391px; position: absolute; width: 151px" Text="Apply" />
         <asp:Button ID="btnDisplayAll" runat="server" style="z-index: 1; left: 229px; top: 391px; position: absolute; width: 151px" Text="Display All" />
-        <asp:Button ID="btnDelete" runat="server" style="z-index: 1; left: 281px; top: 426px; position: absolute; width: 100px" Text="Delete" />
-        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 176px; top: 426px; position: absolute; width: 100px" Text="Edit" />
+        <asp:Button ID="btnDelete" runat="server" style="z-index: 1; left: 281px; top: 426px; position: absolute; width: 100px" Text="Delete" OnClick="btnDelete_Click" />
+        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 176px; top: 426px; position: absolute; width: 100px" Text="Edit" OnClick="btnEdit_Click" />
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 73px; top: 467px; position: absolute; width: 309px"></asp:Label>
     </form>
 </body>
 </html>
