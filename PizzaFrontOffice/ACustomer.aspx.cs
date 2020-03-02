@@ -48,7 +48,7 @@ public partial class ACustomer : System.Web.UI.Page
         //create an instance of the customer class
         clsCustomerCollection CustomerList = new clsCustomerCollection();
         //validate the data on the web form
-        String Error = ""; //CustomerList.ThisCustomer.Valid(txtFirstname.Text, txtLastname.Text, txtHouseNo.Text, txtStreetName.Text, txtCity.Text, txtPostcode.Text, txtPhoneNo.Text, txtEmail.Text);
+        String Error = CustomerList.ThisCustomer.Valid(txtFirstname.Text, txtLastname.Text, txtHouseNo.Text, txtStreetName.Text, txtCity.Text, txtPostcode.Text, txtPhoneNo.Text, txtEmail.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {

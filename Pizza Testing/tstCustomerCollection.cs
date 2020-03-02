@@ -207,5 +207,60 @@ namespace Pizza_Testing
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
 
+        [TestMethod]
+        public void ReportByPostcodeMethodOK()
+        {
+            //create an instance of the clsCustomerCollection class
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            // create an instance of the filtered data
+            clsCustomerCollection FilteredPostcodes = new clsCustomerCollection();
+            //apply a blank string (should return all records)
+            FilteredPostcodes.ReportByPostcode("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, FilteredPostcodes.Count);
+        }
+
+        [TestMethod]
+        public void ReportByPostcodeNoneFound()
+        {
+            //create an instance of the clsCustomerCollection class
+            clsCustomerCollection FilteredPostcodes = new clsCustomerCollection();
+            //apply a postcode that doesnt exist
+            FilteredPostcodes.ReportByPostcode("xxx xxx");
+            //test to see that the two values are the same
+            Assert.AreEqual(0, FilteredPostcodes.Count);
+        }
+
+        [TestMethod]
+        public void ReportByPostcodeTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsCustomerCollection FilteredPostcodes = new clsCustomerCollection();
+            //var to store the outcome
+            Boolean OK = true;
+            //apply a postcode that does exist
+            FilteredPostcodes.ReportByPostcode("LE1 6MN");
+            //check that the correct number of records are found
+            if (FilteredPostcodes.Count == 2)
+            {
+                //check that the first record is ID 1
+                if (FilteredPostcodes.CustomerList[0].CustomerID != 1)
+                {
+                    OK = false;
+                }
+                //check that the first record is ID 2
+                if (FilteredPostcodes.CustomerList[1].CustomerID != 2)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
+
     }
 }
