@@ -59,8 +59,8 @@ namespace PizzaClasses
                 //read in the fields from the current record
                 AStock.Name = Convert.ToString(DB.DataTable.Rows[Index]["Name"]);
                 AStock.Description = Convert.ToString(DB.DataTable.Rows[Index]["Description"]);
-                AStock.StockQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Stock Quantity"]);
-                AStock.StockItemPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["Stock Item Price"]);
+                AStock.StockQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["StockQuantity"]);
+                AStock.StockItemPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["StockItemPrice"]);
                 //add the record to the private data member 
                 mStockList.Add(AStock);
                 //point at the next record
