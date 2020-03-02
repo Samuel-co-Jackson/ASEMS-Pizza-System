@@ -122,9 +122,10 @@ namespace PizzaClasses
             return false;
         }
 
-        //public string Valid(string Customerfirstname, string Customerlastname, string Customerhouseno, string Customerstreetname, string Customercity, string Customerpostcode, string Customeremail, string customerPhoneNo)
-        //{
-        //    return "";
-        //}
+        public string Valid(string Customerfirstname, string Customerlastname, string Customerhouseno, string Customerstreetname, string Customercity, string Customerpostcode, string Customeremail, string customerPhoneNo)
+        {
+            string Error = "";
+            return Error;
+        }
     }
 }
