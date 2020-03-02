@@ -122,4 +122,10 @@ public partial class ACustomer : System.Web.UI.Page
         txtEmail.Text = CustomerList.ThisCustomer.Customeremail;
     }
 
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //redirect to the main page
+        Response.Redirect("CustomerList.aspx");
+    }
 }
