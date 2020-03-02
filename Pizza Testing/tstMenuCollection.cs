@@ -42,18 +42,7 @@ namespace Pizza_Testing
             Assert.AreEqual(AllMenu.MenuList, TestList);
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsMenuCollection AllMenu = new clsMenuCollection();
-            //create some test data to assign to the property
-            Int32 SomeCount = 0;
-            //assign the data to the property
-            AllMenu.Count = SomeCount;
-            //test that they are the same
-            Assert.AreEqual(AllMenu.Count, SomeCount);
-        }
+        
 
         [TestMethod]
         public void ThisMenuItemPropertyOK()
@@ -97,6 +86,32 @@ namespace Pizza_Testing
             AllMenu.MenuList = TestList;
             //test to see that the two values are the same
             Assert.AreEqual(AllMenu.Count, TestList.Count);
+        }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsMenuCollection AllMenu = new clsMenuCollection();
+            //create the item of test data 
+            clsMenu TestItem = new clsMenu();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties
+            TestItem.Name = "Cheesy";
+            TestItem.Description = "Classic cheese delite!";
+            TestItem.RecipeID = 1;
+            TestItem.Price = 5.0;
+            //set ThisMenu to test data
+            AllMenu.ThisItem = TestItem;
+            //add the record
+            PrimaryKey = AllMenu.Add();
+            //set the primary key of the test data
+            TestItem.MenuItemID = PrimaryKey;
+            //find the record
+            AllMenu.ThisItem.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllMenu.ThisItem, TestItem);
         }
     }
 }

@@ -17,19 +17,6 @@ namespace Pizza_Testing
         }
 
         [TestMethod]
-        public void ActivePropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomer ACustomer = new clsCustomer();
-            //create some test data to assign to the property
-            Boolean TestData = true;
-            //assign the data to the property
-            ACustomer.Active = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(ACustomer.Active, TestData);
-        }
-
-        [TestMethod]
         public void CustomerIDPropertyOK()
         {
             //create an instance of the class we want to create

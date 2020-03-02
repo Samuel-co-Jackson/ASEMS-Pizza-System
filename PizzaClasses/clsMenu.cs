@@ -1,4 +1,6 @@
-﻿namespace PizzaClasses
+﻿using System;
+
+namespace PizzaClasses
 {
     public class clsMenu
     {
@@ -12,7 +14,9 @@
         public int RecipeID { get; set; }
         public double Price { get; set; }
 
-
-
+        public void Find(int primaryKey)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

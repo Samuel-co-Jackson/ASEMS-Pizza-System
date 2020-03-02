@@ -53,12 +53,15 @@
     <Compile Include="tstCustomer.cs" />
     <Compile Include="tstCustomerCollection.cs" />
     <Compile Include="tstMenuCollection.cs" />
+    <Compile Include="tstOrderCollection.cs" />
     <Compile Include="tstStaffCollection.cs" />
     <Compile Include="tstStock.cs" />
     <Compile Include="tstOrder.cs" />
     <Compile Include="tstStaff.cs" />
     <Compile Include="tstMenu.cs" />
     <Compile Include="tstStockCollection.cs" />
+    <Compile Include="tstRole.cs" />
+    <Compile Include="tstRoleCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
