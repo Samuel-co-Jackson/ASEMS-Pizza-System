@@ -42,19 +42,6 @@ namespace Pizza_Testing
         }
 
         [TestMethod]
-        public void StockPropertyOK()
-        {
-            //create an instance of the class I want to create
-            clsStockCollection AllStocks = new clsStockCollection();
-            //create test data to assign to property
-            Int32 SomeCount = 2;
-            //assign the data to the property
-            AllStocks.Count = SomeCount;
-            //test to see if the two values match
-            Assert.AreEqual(AllStocks.Count, SomeCount);
-        }
-
-        [TestMethod]
         public void ThisStockPropertyOK()
         {
             //create an instance of the class I want to create
@@ -94,15 +81,6 @@ namespace Pizza_Testing
             AllStocks.StockList = TestList;
             //test to see that the two values are the same
             Assert.AreEqual(AllStocks.Count, TestList.Count);
-        }
-
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //create an instance of the class I want to create
-            clsStockCollection AllStocks = new clsStockCollection();
-            //test to see that the two values are the same
-            Assert.AreEqual(AllStocks.Count, 2);
         }
     }
 }
