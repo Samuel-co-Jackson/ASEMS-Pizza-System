@@ -102,10 +102,11 @@ namespace Pizza_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.CustomerID = 24;
-            TestItem.StaffID = 24;
+            //TestItem.OrderID = 31;
+            TestItem.CustomerID = 1;
+            TestItem.StaffID = 4;
             TestItem.OrderDate = DateTime.Now.Date;
-            TestItem.OrderStatus = "Cooking";
+            TestItem.OrderStatus = "Accepted";
             //set ThisOrder to the test
             AllOrders.ThisOrder = TestItem;
             //add the record
@@ -113,7 +114,7 @@ namespace Pizza_Testing
             //set the primary key of the test data
             TestItem.OrderID = PrimaryKey;
             //find the record
-            //AllOrders.ThisOrder.Find(PrimaryKey);
+            AllOrders.ThisOrder.Find(PrimaryKey);
             //test to see that the two values are the same
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
             
@@ -129,9 +130,9 @@ namespace Pizza_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.OrderID = 25;
-            TestItem.CustomerID = 25;
-            TestItem.StaffID = 25;
+            //TestItem.OrderID = 73;
+            TestItem.CustomerID = 1;
+            TestItem.StaffID = 1;
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.OrderStatus = "Cooking";
             //set ThisOrder to the test
@@ -145,9 +146,9 @@ namespace Pizza_Testing
             //delete the record
             AllOrders.Delete();
             //now find the record
-            //Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
             //test to see that the two values are the same
-            Assert.IsFalse(false);
+            Assert.IsFalse(Found);
         }
 
         [TestMethod]
@@ -160,8 +161,9 @@ namespace Pizza_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.CustomerID = 25;
-            TestItem.StaffID = 25;
+            //TestItem.OrderID = 60;
+            TestItem.CustomerID = 1;
+            TestItem.StaffID = 1;
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.OrderStatus = "Cooking";
             //set ThisOrder to the test data
@@ -171,10 +173,11 @@ namespace Pizza_Testing
             //set the primary key of the test daTA
             TestItem.OrderID = PrimaryKey;
             //modify the test data
-            TestItem.CustomerID = 25;
-            TestItem.StaffID = 25;
+            //TestItem.OrderID = 60;
+            TestItem.CustomerID = 1;
+            TestItem.StaffID = 1;
             TestItem.OrderDate = DateTime.Now.Date;
-            TestItem.OrderStatus = "Delivering";
+            TestItem.OrderStatus = "Finished";
             //set the record based on the new test data
             AllOrders.ThisOrder = TestItem;
             //update the order
@@ -183,6 +186,60 @@ namespace Pizza_Testing
             AllOrders.ThisOrder.Find(PrimaryKey);
             //test to see  ThisAddress matches the test data
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
+
+        [TestMethod]
+        public void ReportByStatusMethodOK()
+        {
+            //create an instance of the class containing unfiltered result
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create an instance of the filtered data
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //apply a blank string (should return all records);
+            FilteredOrder.ReportOrderStatus("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllOrders.Count, FilteredOrder.Count);
+        }
+
+        [TestMethod]
+        public void ReportByStatusNoneFound()
+        {
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //apply a blank string (should return all records);
+            FilteredOrder.ReportOrderStatus("xxx xxx");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredOrder.Count);
+        }
+
+        [TestMethod]
+        public void ReportByOrderStatusDataFound()
+        {
+            //create an instance of the fildered data 
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            //var to store the outcome
+            Boolean OK = true;
+            //apply a status that doesn't exists
+            FilteredOrders.ReportOrderStatus("Hello");
+            //check that the correct number of records are found
+            if(FilteredOrders.Count == 2)
+            {
+                //check that the first record is ID 87
+                if (FilteredOrders.OrderList[0].OrderID != 1)
+                {
+                    OK = false;
+                }
+                //check that the first record is ID 88
+                if (FilteredOrders.OrderList[1].OrderID != 2)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
         }
     }
 }

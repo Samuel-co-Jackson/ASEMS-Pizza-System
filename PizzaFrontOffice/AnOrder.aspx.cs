@@ -12,15 +12,23 @@ public partial class AnOrder : System.Web.UI.Page
     Int32 OrderID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(OrderID != -1)
+        //get the number of the order to be processed
+        OrderID = Convert.ToInt32(Session["OrderID"]);
+        if(IsPostBack == false)
         {
+            //populate the list of orders
             DisplayOrder();
+            //if this is not a new order
+            if (OrderID != -1)
+            {
+                DisplayOrder();
+            }
         }
     }
 
-    protected void btnOK_Click(object sender, EventArgs e)
+    protected void btnOK_Click1(object sender, EventArgs e)
     {
-        if(OrderID == -1)
+        if (OrderID == -1)
         {
             //add new record
             Add();
@@ -32,7 +40,7 @@ public partial class AnOrder : System.Web.UI.Page
         }
 
         //redirect to the viewer page
-        Response.Redirect("OrderViewer.aspx");
+        Response.Redirect("OrderList.aspx");
     }
 
     void DisplayOrder()
@@ -42,9 +50,8 @@ public partial class AnOrder : System.Web.UI.Page
         //find the record to update
         Orders.ThisOrder.Find(OrderID);
         //display the data for this record
-        txtOrderID.Text = Orders.ThisOrder.OrderID.ToString();
         txtCustomerID.Text = Orders.ThisOrder.CustomerID.ToString();
-        txtEmployeeID.Text = Orders.ThisOrder.StaffID.ToString();
+        txtStaffID.Text = Orders.ThisOrder.StaffID.ToString();
         txtOrderDate.Text = Orders.ThisOrder.OrderDate.ToString();
         txtOrderStatus.Text = Orders.ThisOrder.OrderStatus.ToString();
     }
@@ -55,20 +62,19 @@ public partial class AnOrder : System.Web.UI.Page
         //create an instance of the order
         clsOrderCollection Orders = new clsOrderCollection();
         //validate the data on the web form
-        String Error = Orders.ThisOrder.Valid(txtOrderID.Text, txtCustomerID.Text, txtEmployeeID.Text, txtOrderDate.Text, txtOrderStatus.Text);
+        String Error = "";//Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatu.Text);
         //if the data is OK then add it to the object
         if(Error == "")
         {
             //get the data entered by the user
-            Orders.ThisOrder.OrderID = Convert.ToInt32(txtOrderID.Text);
             Orders.ThisOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-            Orders.ThisOrder.StaffID = Convert.ToInt32(txtEmployeeID.Text);
+            Orders.ThisOrder.StaffID = Convert.ToInt32(txtStaffID.Text);
             Orders.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
-            Orders.ThisOrder.OrderStatus = txtOrderStatus.Text;
+            Orders.ThisOrder.OrderStatus = Convert.ToString(txtOrderStatus.Text);
             //add the record
             Orders.Add();
             //redirect to the main page
-            Response.Redirect("OrderViewer.aspx");
+            Response.Redirect("OrderList.aspx");
         }
         else
         {
@@ -83,18 +89,17 @@ public partial class AnOrder : System.Web.UI.Page
         //create an instance of the order
         clsOrderCollection Orders = new clsOrderCollection();
         //validate the data on the web form
-        String Error = Orders.ThisOrder.Valid(txtOrderID.Text, txtCustomerID.Text, txtEmployeeID.Text, txtOrderDate.Text, txtOrderStatus.Text);
+        String Error = Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatus.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
             //find the record to update
             Orders.ThisOrder.Find(OrderID);
             //get the data entered by the user
-            Orders.ThisOrder.OrderID = Convert.ToInt32(txtOrderID.Text);
             Orders.ThisOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-            Orders.ThisOrder.StaffID = Convert.ToInt32(txtEmployeeID.Text);
+            Orders.ThisOrder.StaffID = Convert.ToInt32(txtStaffID.Text);
             Orders.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
-            Orders.ThisOrder.OrderStatus = txtOrderStatus.Text;
+            Orders.ThisOrder.OrderStatus = Convert.ToString(txtOrderStatus.Text);
             //update the order
             Orders.Update();
             //redirect to the main page

@@ -19,6 +19,14 @@
             position: absolute;
             bottom: 368px;
         }
+        .auto-style3 {
+            position: absolute;
+            top: 58px;
+            left: 52px;
+            z-index: 1;
+            width: 288px;
+            height: 190px;
+        }
     </style>
 </head>
 <body>
@@ -28,7 +36,6 @@
         <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 47px; top: 405px; position: absolute; width: 81px; height: 25px; right: 1382px;" Text="Add" OnClick="btnAdd_Click" />
         <asp:Button ID="btnDelete" runat="server" style="z-index: 1; left: 232px; top: 404px; position: absolute; width: 85px;" Text="Delete" OnClick="btnDelete_Click" />
         <div>
-        <asp:ListBox ID="lstOrder" runat="server" style="z-index: 1; left: 53px; top: 49px; position: absolute; height: 189px; width: 313px"></asp:ListBox>
             <asp:Label ID="lblError" runat="server" CssClass="auto-style1"></asp:Label>
         <asp:Label ID="lblOrderSearch" runat="server" Text="Please enter some order data:" CssClass="auto-style2"></asp:Label>
         </div>
@@ -38,6 +45,7 @@
         <p>
             &nbsp;</p>
         <asp:TextBox ID="txtOrder" runat="server" style="position: relative; top: 200px; left: 47px; width: 206px"></asp:TextBox>
+        <asp:ListBox ID="lstOrder" runat="server" CssClass="auto-style3"></asp:ListBox>
     </form>
 </body>
 </html>

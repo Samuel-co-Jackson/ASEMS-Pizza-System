@@ -10,12 +10,12 @@ namespace PizzaClasses
         public int StaffID { get; set; }
         public string OrderStatus { get; set; }
 
-        public void Find(int PrimaryKey)
+        public Boolean Find(int PrimaryKey)
         {
-            
+            return false;
         }
 
-        public string Valid(string OrderID, string CustomerID, string StaffID, string OrderDate, string OrderStatus)
+        public string Valid(string CustomerID, string StaffID, string OrderDate, string OrderStatus)
         {
             return "";
         }

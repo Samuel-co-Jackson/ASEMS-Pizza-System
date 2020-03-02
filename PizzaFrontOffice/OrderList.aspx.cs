@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 
 public partial class OrderList : System.Web.UI.Page
 {
+ 
+
     //variable to store the primary key with page level scope
     Int32 OrderID;
 
@@ -20,20 +22,20 @@ public partial class OrderList : System.Web.UI.Page
         if(IsPostBack == false)
         {
             //update the list box
-            DisplayOrders();
+            DisplayOrderStatus();
 
         }
     }
 
-    void DisplayOrders()
+    void DisplayOrderStatus()
     {
-        //create an instance of the order collection
+        //create an instance of the Customer collection
         clsOrderCollection Orders = new clsOrderCollection();
-        //set the data sorce to the list of the counties in the collection
+        //set the data source to the list of customers in the collection
         lstOrder.DataSource = Orders.OrderList;
-        //set the name of the primary key 
+        //set the name of the primary key
         lstOrder.DataValueField = "OrderID";
-        //set the data feild to display
+        //set the data field to display
         lstOrder.DataTextField = "OrderStatus";
         //bind the data to the list
         lstOrder.DataBind();
@@ -59,7 +61,7 @@ public partial class OrderList : System.Web.UI.Page
             //store the data in the session object
             Session["OrderID"] = OrderID;
             //redirect to the delete page
-            Response.Redirect("OrderDelete");
+            Response.Redirect("OrderDelete.aspx");
         }
         else //if nno record has been selected
         {
@@ -85,7 +87,7 @@ public partial class OrderList : System.Web.UI.Page
         else //if no record has been selected
         {
             //display an error
-            lblError.Text = "Please select a record to delete from the list";
+            lblError.Text = "Please select a record to edit from the list";
         }
     }
 }
