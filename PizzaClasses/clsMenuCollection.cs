@@ -99,5 +99,29 @@ namespace PizzaClasses
             //execute the query returnng the primary key value
             return DB.Execute("sproc_tblMenu_Insert");
         }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisItem
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@MenuID", mThisMenu.MenuItemID);
+            //execute stored procedure
+            DB.Execute("sproc_tblMenu_Delete");
+        }
+
+        public void Update()
+        {
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters
+            DB.AddParameter("@Name", mThisMenu.Name);
+            DB.AddParameter("@Description", mThisMenu.Description);
+            DB.AddParameter("@RecipeID", mThisMenu.RecipeID);
+            DB.AddParameter("@Price", ThisMenuItem.Price);
+            //execute stored procedure
+            DB.Execute("sproc_tblMenu_Update");
+        }
     }
 }
