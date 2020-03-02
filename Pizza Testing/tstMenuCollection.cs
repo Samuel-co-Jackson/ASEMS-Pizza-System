@@ -42,7 +42,7 @@ namespace Pizza_Testing
             Assert.AreEqual(AllMenu.MenuList, TestList);
         }
 
-        
+
 
         [TestMethod]
         public void ThisMenuItemPropertyOK()
@@ -111,6 +111,71 @@ namespace Pizza_Testing
             //find the record
             AllMenu.ThisItem.Find(PrimaryKey);
             //test to see that the two values are the same
+            Assert.AreEqual(AllMenu.ThisItem, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsMenuCollection AllMenu = new clsMenuCollection();
+            //create the item of test data 
+            clsMenu TestItem = new clsMenu();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties
+            TestItem.Name = "Cheesy";
+            TestItem.Description = "Classic cheese delite!";
+            TestItem.RecipeID = 1;
+            TestItem.Price = 5.0;
+            //set ThisMenu to test data
+            AllMenu.ThisItem = TestItem;
+            //add the record
+            PrimaryKey = AllMenu.Add();
+            //set the primary key of the test data
+            TestItem.MenuItemID = PrimaryKey;
+            //find the record
+            AllMenu.ThisItem.Find(PrimaryKey);
+            //delete the record
+            AllMenu.Delete();
+            //now find the record
+            Boolean Found = AllMenu.ThisItem.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsMenuCollection AllMenu = new clsMenuCollection();
+            //create the item of test data 
+            clsMenu TestItem = new clsMenu();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties
+            TestItem.Name = "Cheesy";
+            TestItem.Description = "Classic cheese delite!";
+            TestItem.RecipeID = 1;
+            TestItem.Price = 5.0;
+            //set ThisMenu to test data
+            AllMenu.ThisItem = TestItem;
+            //add the record
+            PrimaryKey = AllMenu.Add();
+            //set the primary key of the test data
+            TestItem.MenuItemID = PrimaryKey;
+            //modify the data
+            TestItem.Name = "Spicy";
+            TestItem.Description = "Mouth melting goodness";
+            TestItem.RecipeID = 5;
+            TestItem.Price = 7.5;
+            //set the record based on the new test data
+            AllMenu.ThisItem = TestItem;
+            //update the record
+            AllMenu.Update();
+            //find the record
+            AllMenu.ThisItem.Find(PrimaryKey);
+            //test to see this menu matches
             Assert.AreEqual(AllMenu.ThisItem, TestItem);
         }
     }
