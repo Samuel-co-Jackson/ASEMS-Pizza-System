@@ -29,7 +29,7 @@
         <asp:TextBox ID="txtOrderDate" runat="server" style="z-index: 1; left: 140px; top: 154px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 17px; top: 251px; position: absolute" Text="[lblError]"></asp:Label>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" style="z-index: 1; left: 63px; top: 309px; position: absolute; width: 112px" Text="OK" />
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 201px; top: 310px; position: absolute; width: 113px" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 201px; top: 310px; position: absolute; width: 113px" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:TextBox ID="txtOrderStatus" runat="server" style="z-index: 1; left: 143px; top: 195px; position: absolute"></asp:TextBox>
     </form>
 </body>

@@ -53,7 +53,7 @@ public partial class AnOrder : System.Web.UI.Page
         txtCustomerID.Text = Orders.ThisOrder.CustomerID.ToString();
         txtStaffID.Text = Orders.ThisOrder.StaffID.ToString();
         txtOrderDate.Text = Orders.ThisOrder.OrderDate.ToString();
-        txtOrderStatus.Text = Orders.ThisOrder.OrderStatus.ToString();
+        txtOrderStatus.Text = Orders.ThisOrder.OrderStatus;
     }
 
     //function for adding new records
@@ -62,7 +62,7 @@ public partial class AnOrder : System.Web.UI.Page
         //create an instance of the order
         clsOrderCollection Orders = new clsOrderCollection();
         //validate the data on the web form
-        String Error = "";//Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatu.Text);
+        String Error = ""; //Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatus.Text);
         //if the data is OK then add it to the object
         if(Error == "")
         {
@@ -89,7 +89,7 @@ public partial class AnOrder : System.Web.UI.Page
         //create an instance of the order
         clsOrderCollection Orders = new clsOrderCollection();
         //validate the data on the web form
-        String Error = Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatus.Text);
+        String Error = "";// Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatus.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
@@ -110,5 +110,11 @@ public partial class AnOrder : System.Web.UI.Page
             //report an error
             lblError.Text = "There were problems with the data entered " + Error;
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //redirect to the home page
+        Response.Redirect("OrderList.aspx");
     }
 }
