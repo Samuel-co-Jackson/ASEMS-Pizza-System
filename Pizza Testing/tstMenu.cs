@@ -80,5 +80,20 @@ namespace Pizza_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AMenu.Price, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 MenuID = 1;
+            //invoke the method 
+            Found = AMenu.Find(MenuID);
+            //test to see that the result is correct
+            Assert.IsTrue(Found);
+        }
     }
 }
