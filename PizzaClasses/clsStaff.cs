@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace PizzaClasses
 {
@@ -192,6 +193,160 @@ namespace PizzaClasses
             }
             else return false; //no row found means no staff member with this id exists
 
+        }
+
+        public string Valid(string firstName, string lastName, DateTime dateOfBirth, DateTime dateOfHire, int staffRoleId, string postCode, string cityOfResidence, string streetName, string houseNumber, string contactEmail, string contactPhoneNo)
+        {
+
+            String Error = "";
+
+            //Validation for first Name
+            if(firstName.Length == 0)
+            {
+                Error += "First name is a required field!" + Environment.NewLine;
+            }
+            else if(firstName.Length > 30)
+            {
+                Error += "First name must be 30 characters or shorter!" + Environment.NewLine;
+            }
+            else if(firstName.Any(char.IsDigit))
+            {
+                Error += "First name must not contain any numbers!" + Environment.NewLine;
+            }
+
+            //Validation for last name
+            if (lastName.Length == 0)
+            {
+                Error += "Last name is a required field!" + Environment.NewLine;
+            }
+            else if (lastName.Length > 50)
+            {
+                Error += "Last name must be 50 characters or shorter!" + Environment.NewLine;
+            }
+            else if (lastName.Any(char.IsDigit))
+            {
+                Error += "Last name must not contain any numbers!" + Environment.NewLine;
+            }
+
+            //Validation for date of birth
+            try
+            {
+                DateTime DateTemp = Convert.ToDateTime(dateOfBirth);
+                if (DateTemp < Convert.ToDateTime("01/01/1920"))
+                {
+                    Error += "Entered date of birth suggest the staff is over 100 years old!" + Environment.NewLine;
+                }
+                else if (DateTemp > Convert.ToDateTime("01/01/2004"))
+                {
+                    Error += "Entered date of birth suggest the staff is younger than 16 years old!" + Environment.NewLine;
+                }
+            }
+            catch
+            {
+                Error += "Date of birth is a required field!" + Environment.NewLine;
+            }
+
+            //Validation for date of hire
+            try
+            {
+                DateTime DateTemp = Convert.ToDateTime(dateOfHire);
+                if (DateTemp < Convert.ToDateTime("01/01/2019"))
+                {
+                    Error += "The business started in 2019 so the date of hire cannot be before that date!" + Environment.NewLine;
+                }
+                else if (DateTemp > Convert.ToDateTime("01/01/2022"))
+                {
+                    Error += "Entered date of hire suggest the staff will start in over a year's time!" + Environment.NewLine;
+                }
+            }
+            catch
+            {
+                Error += "Date of hire is a required field!" + Environment.NewLine;
+            }
+
+            //Validation for staff role id
+            if (staffRoleId == 0)
+            {
+                Error += "Staff role is a required field!" + Environment.NewLine;
+            }
+            else if (staffRoleId > 5)
+            {
+                Error += "You must select a staff role from the dropdown list!" + Environment.NewLine;
+            }
+
+            //Validation for post code
+            if (postCode.Length == 0)
+            {
+                Error += "Postcode is a required field!" + Environment.NewLine;
+            }
+            else if (postCode.Length > 10)
+            {
+                Error += "Postcode must be 10 characters or shorter!" + Environment.NewLine;
+            }
+
+            //Validation for city of residence
+            if (cityOfResidence.Length == 0)
+            {
+                Error += "City of residence is a required field!" + Environment.NewLine;
+            }
+            else if (cityOfResidence.Length > 60)
+            {
+                Error += "City of residence must be 60 characters or shorter!" + Environment.NewLine;
+            }
+            else if (cityOfResidence.Any(char.IsDigit))
+            {
+                Error += "City of residence must not contain any numbers!" + Environment.NewLine;
+            }
+
+            //Validation for street name
+            if (streetName.Length == 0)
+            {
+                Error += "Street name is a required field!" + Environment.NewLine;
+            }
+            else if (streetName.Length > 40)
+            {
+                Error += "Street name must be 40 characters or shorter!" + Environment.NewLine;
+            }
+
+            //Validation for house number
+            if (houseNumber.Length == 0)
+            {
+                Error += "House number is a required field!" + Environment.NewLine;
+            }
+            else if (houseNumber.Length > 10)
+            {
+                Error += "House number must be 10 characters or shorter!" + Environment.NewLine;
+            }
+
+            //Validation for contact email
+            if (contactEmail.Length == 0)
+            {
+                Error += "Contact E-Mail address is a required field!" + Environment.NewLine;
+            }
+            else if (contactEmail.Length > 30)
+            {
+                Error += "Contact E-Mail address must be 30 characters or shorter!" + Environment.NewLine;
+            }
+            else if (!contactEmail.Any(c => c == '@')) //Check if @ is present in string
+            {
+                Error += "You must enter a valid E-Mail address!" + Environment.NewLine;
+            }
+
+            //Validation for contact phone number
+            if (contactPhoneNo.Length == 0)
+            {
+                Error += "Contact phone number is a required field!" + Environment.NewLine;
+            }
+            else if (contactPhoneNo.Length > 15)
+            {
+                Error += "Contact phone number must be 15 characters or shorter!" + Environment.NewLine;
+            }
+            else if (contactPhoneNo.Any(x => char.IsLetter(x))) //Check if there are any letters in the string
+            {
+                Error += "You must enter a valid telephone number!" + Environment.NewLine;
+            }
+
+            return Error;
         }
     }
 }

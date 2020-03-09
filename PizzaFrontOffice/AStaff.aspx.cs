@@ -51,7 +51,7 @@ public partial class AStaff : System.Web.UI.Page
 
     protected void btnSave_Click1(object sender, EventArgs e)
     {
-        if(staffId == -1)
+        if (staffId == -1)
         {
             Add();
         }
@@ -90,33 +90,7 @@ public partial class AStaff : System.Web.UI.Page
         }
     }
 
-    void Update()
-    {
-        clsStaffCollection StaffList = new clsStaffCollection();
-        String Error = "";//StaffList.ThisStaff.Valid(txtName.Text, txtAddress.Text, txtNotices.Text)
-        if(Error == "")
-        {
-            StaffList.ThisStaff.Find(staffId);
-            StaffList.ThisStaff.staffRoleId = ddlRole.SelectedIndex;
-            StaffList.ThisStaff.firstName = txtFirstName.Text;
-            StaffList.ThisStaff.lastName = txtLastName.Text;
-            StaffList.ThisStaff.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
-            StaffList.ThisStaff.dateOfHire = Convert.ToDateTime(txtDOH.Text);
-            StaffList.ThisStaff.postCode = txtPostcode.Text;
-            StaffList.ThisStaff.cityOfResidence = txtCity.Text;
-            StaffList.ThisStaff.streetName = txtStreet.Text;
-            StaffList.ThisStaff.houseNumber = txtHouseNo.Text;
-            StaffList.ThisStaff.contactEmail = txtEmail.Text;
-            StaffList.ThisStaff.contactPhoneNo = txtPhone.Text;
-            StaffList.ThisStaff.onHoliday = chkHoliday.Checked;
-            StaffList.update();
-            Response.Redirect("StaffList.aspx");
-        }
-        else
-        {
-            lblError.Text = "There was problem with data entered: " + Error;
-        }
-    }
+    
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {

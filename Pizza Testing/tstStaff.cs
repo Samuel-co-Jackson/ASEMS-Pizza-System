@@ -7,6 +7,21 @@ namespace Pizza_Testing
     [TestClass]
     public class tstStaff
     {
+
+        //good test data
+        //create some data to pass to the method
+        String firstName = "John";
+        String lastName = "Hathorne";
+        DateTime dateOfBirth = Convert.ToDateTime("25/09/1996");
+        DateTime dateOfHire = Convert.ToDateTime("14/02/2020");
+        Int32 staffRoleId = 3;
+        String postCode = "LE2 8BA";
+        String cityOfResidence = "Leicester";
+        String streetName = "Saffron Crossroads";
+        String houseNumber = "17a";
+        String contactEmail = "John.Hathorne@example.mail";
+        String contactPhoneNo = "+4492381038919";
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -208,6 +223,19 @@ namespace Pizza_Testing
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsStaff AStaff = new clsStaff();
+            String Error = "";
+            Error = AStaff.Valid(firstName, lastName, 
+                dateOfBirth, dateOfHire, 
+                staffRoleId, 
+                postCode, cityOfResidence, streetName, houseNumber, 
+                contactEmail, contactPhoneNo);
+            Assert.Equals(Error, "");
         }
 
     }
