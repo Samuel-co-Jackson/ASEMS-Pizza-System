@@ -297,7 +297,7 @@ namespace PizzaClasses
             }
 
             //if the Customerphoneno is greater than 11 characters
-            if (customerPhoneNo.Length < 11 | customerPhoneNo.Length > 11)
+            if (customerPhoneNo.Length > 11)
             {
                 //record the error
                 Error = Error + "The Phone No must only be 11 numbers. : ";
