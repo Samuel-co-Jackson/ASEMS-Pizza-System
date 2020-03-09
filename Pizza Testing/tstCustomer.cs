@@ -1295,7 +1295,7 @@ namespace Pizza_Testing
             //invoke the method
             Error = ACustomer.Valid(Customerfirstname, Customerlastname, Customerhouseno, Customerstreetname, Customercity, Customerpostcode, Customeremail, Customerphoneno);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
     
         [TestMethod]
