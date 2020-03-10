@@ -234,7 +234,7 @@ namespace Pizza_Testing
                 dateOfBirth, dateOfHire, 
                 staffRoleId, 
                 postCode, cityOfResidence, streetName, houseNumber, //all done
-                contactEmail, contactPhoneNo);
+                contactEmail, contactPhoneNo); //both done
             Assert.Equals(Error, "");
         }
         
@@ -666,7 +666,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            houseNumber = "Sa"; //this should be ok
+            houseNumber = "7"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -681,7 +681,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            houseNumber = "Saf"; //this should be ok
+            houseNumber = "15"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -696,7 +696,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            houseNumber = "Saffron CrossroadsSaffron Crossroads Sa"; //this should be ok
+            houseNumber = "GregsHous"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -711,7 +711,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            houseNumber = "Saffron CrossroadsSaffron Crossroads Saf"; //this should be ok
+            houseNumber = "GregsHouse"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -726,7 +726,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            houseNumber = "Saffron CrossroadsSaffron Crossroads Saff"; //this should fail
+            houseNumber = "Gregs House"; //this should fail
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -741,7 +741,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            houseNumber = "Saffron Crossroads"; //this should be ok
+            houseNumber = "519/a"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -771,7 +771,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            cityOfResidence = "Sa"; //this should be ok
+            cityOfResidence = "Ya"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -786,7 +786,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            cityOfResidence = "Saf"; //this should be ok
+            cityOfResidence = "Yal"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -801,7 +801,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            cityOfResidence = "Saffron CrossroadsSaffron Crossroads Sa"; //this should be ok
+            cityOfResidence = "Leicester Leicester Leicester Leicester Leicester Leicester"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -816,7 +816,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            cityOfResidence = "Saffron CrossroadsSaffron Crossroads Saf"; //this should be ok
+            cityOfResidence = "Leicester Leicester Leicester Leicester Leicester Leicester "; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -831,7 +831,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            cityOfResidence = "Saffron CrossroadsSaffron Crossroads Saff"; //this should fail
+            cityOfResidence = "Leicester Leicester Leicester Leicester Leicester Leicester L"; //this should fail
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -846,7 +846,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            cityOfResidence = "Saffron Crossroads"; //this should be ok
+            cityOfResidence = "Leicester Leicester Leicester "; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -868,5 +868,214 @@ namespace Pizza_Testing
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void ContactEmailMin()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactEmail = "B@g.cn"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactEmailMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactEmail = "Jo@g.cn"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactEmailMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactEmail = "SuperSuperSuperSuperSup@o2.pl"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactEmailMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactEmail = "SuperSuperSuperSuperSupe@o2.pl"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactEmailMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactEmail = "SuperSuperSuperSuperSuper@o2.pl"; //this should fail
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactEmailMid()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactEmail = "SuperSuperSu@o2.pl"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactEmailExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactEmail = streetName.PadRight(500, 'H'); //this should fail
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactPhoneNoMin()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactPhoneNo = "49128471"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactPhoneNoMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactPhoneNo = "810372819"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactPhoneNoMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactPhoneNo = "(+44) 0924712903705"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactPhoneNoMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactPhoneNo = "(+44) 09247129037056"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactPhoneNoMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactPhoneNo = "(+44) 092471290370562"; //this should fail
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactPhoneNoMid()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactPhoneNo = "0924712903705"; //this should be ok
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ContactPhoneNoExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            contactPhoneNo = streetName.PadRight(500, '5'); //this should fail
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }

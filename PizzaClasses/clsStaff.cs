@@ -339,6 +339,10 @@ namespace PizzaClasses
             {
                 Error += "Contact E-Mail address must be 30 characters or shorter!" + Environment.NewLine;
             }
+            else if (contactEmail.Length < 6) //shorted existing email is in format a@g.cn
+            {
+                Error += "Contact E-Mail address must be 6 characters or longer!" + Environment.NewLine;
+            }
             else if (!contactEmail.Any(c => c == '@')) //Check if @ is present in string
             {
                 Error += "You must enter a valid E-Mail address!" + Environment.NewLine;
@@ -349,9 +353,13 @@ namespace PizzaClasses
             {
                 Error += "Contact phone number is a required field!" + Environment.NewLine;
             }
-            else if (contactPhoneNo.Length > 15)
+            else if (contactPhoneNo.Length > 20)
             {
-                Error += "Contact phone number must be 15 characters or shorter!" + Environment.NewLine;
+                Error += "Contact phone number must be 20 characters or shorter!" + Environment.NewLine;
+            }
+            else if (contactPhoneNo.Length < 8) //Phone number must be 8 characters or longer, no special numbers allowed
+            {
+                Error += "Contact phone number must be 8 characters or longer!" + Environment.NewLine;
             }
             else if (contactPhoneNo.Any(x => char.IsLetter(x))) //Check if there are any letters in the string
             {
