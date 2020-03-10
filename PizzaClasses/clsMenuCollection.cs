@@ -5,11 +5,21 @@ namespace PizzaClasses
 {
     public class clsMenuCollection
     {
-
         //private data member for the list
         List<clsMenu> mMenuList = new List<clsMenu>();
         //private data member thisMenu
         clsMenu mThisMenu = new clsMenu();
+
+        //constructor for the class
+        public clsMenuCollection()
+        {
+            //object for the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the store procedure
+            DB.Execute("sproc_tblMenu_SelectAll");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
 
         //public property for the menu list
         public List<clsMenu> MenuList
@@ -55,21 +65,18 @@ namespace PizzaClasses
             }
         }
 
-        //constructor for this class
-        public clsMenuCollection()
+        void PopulateArray(clsDataConnection DB)
         {
             //var for the index
             int Index = 0;
             //var to store the record count
             int RecordCount = 0;
-            //object for data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblMenu_SelectAll");
             //get the count of records
             RecordCount = DB.Count;
+            //clear the private array list
+            mMenuList = new List<clsMenu>();
             //while there are records to process
-            while(Index < RecordCount)
+            while (Index < RecordCount)
             {
                 //create a blank Menu
                 clsMenu AMenu = new clsMenu();
@@ -106,7 +113,7 @@ namespace PizzaClasses
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@MenuID", mThisMenu.MenuItemID);
+            DB.AddParameter("@MenuItemID", mThisMenu.MenuItemID);
             //execute stored procedure
             DB.Execute("sproc_tblMenu_Delete");
         }
@@ -116,12 +123,26 @@ namespace PizzaClasses
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters
+            DB.AddParameter("@MenuID", mThisMenu.MenuItemID);
             DB.AddParameter("@Name", mThisMenu.Name);
             DB.AddParameter("@Description", mThisMenu.Description);
             DB.AddParameter("@RecipeID", mThisMenu.RecipeID);
             DB.AddParameter("@Price", ThisMenuItem.Price);
             //execute stored procedure
             DB.Execute("sproc_tblMenu_Update");
+        }
+
+        public void ReportByPizzaName(string Name)
+        {
+            //filters the records based on a full/partial name
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the PizzaName parameter to the database
+            DB.AddParameter("@PizzaName", Name);
+            //execute the stored procedure
+            DB.Execute("sproc_tblMenu_FilterByPizzaName");
+            //populate the array
+            PopulateArray(DB);
         }
     }
 }

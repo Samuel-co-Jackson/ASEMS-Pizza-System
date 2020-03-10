@@ -186,7 +186,123 @@ namespace PizzaClasses
 
         public string Valid(string Customerfirstname, string Customerlastname, string Customerhouseno, string Customerstreetname, string Customercity, string Customerpostcode, string Customeremail, string customerPhoneNo)
         {
-            string Error = "";
+            //create a string variable to store the error message
+            String Error = "";
+
+           //*****************************************************//
+            //if the Customerfirstname is blank
+            if (Customerfirstname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Firstname may not be blank : ";
+            }
+            //if the Customerfirstname is greater than 48 characters
+            if (Customerfirstname.Length > 48)
+            {
+                //record the error
+                Error = Error + "The Firstname may not be more than 48 characters : ";
+            }
+
+            //*****************************************************//
+            //if the Customerlastname is blank
+            if (Customerlastname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Lastname may not be blank : ";
+            }
+            //if the Customerlastname is greater than 48 characters
+            if (Customerlastname.Length > 48)
+            {
+                //record the error
+                Error = Error + "The Lastname may not be more than 48 characters : ";
+            }
+
+            //*****************************************************//
+            //if the Customerhouseno is blank
+            if (Customerhouseno.Length == 0)
+            {
+                //record the error
+                Error = Error + "The House No may not be blank : ";
+            }
+            //if the Customerhouseno is greater than 9 characters
+            if (Customerhouseno.Length > 9)
+            {
+                //record the error
+                Error = Error + "The House No may not be more than 9 characters : ";
+            }
+
+            //*****************************************************//
+            //if the Customerstreetname is blank
+            if (Customerstreetname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Street Name may not be blank : ";
+            }
+            //if the Customerstreetname is greater than 50 characters
+            if (Customerstreetname.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Street Name may not be more than 50 characters : ";
+            }
+
+            //*****************************************************//
+            //if the Customercity is blank
+            if (Customercity.Length == 0)
+            {
+                //record the error
+                Error = Error + "The City may not be blank : ";
+            }
+            //if the Customercity is greater than 80 characters
+            if (Customercity.Length > 80)
+            {
+                //record the error
+                Error = Error + "The City may not be more than 80 characters : ";
+            }
+
+            //*****************************************************//
+            //if the Customerpostcode is blank
+            if (Customerpostcode.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Postcode may not be blank : ";
+            }
+            //if the Customerpostcode is greater than 10 characters
+
+            if (Customerpostcode.Length > 10)
+            {
+                //record the error
+                Error = Error + "The Postcode may not be more than 10 characters: ";
+            }
+
+            //*****************************************************//
+            //if the Customeremail is blank
+            if (Customeremail.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Email may not be blank : ";
+            }
+            //if the Customeremail is greater than 320 characters
+            if (Customeremail.Length > 320)
+            {
+                //record the error
+                Error = Error + "The Email may not be more than 320 characters : ";
+            }
+
+            //*****************************************************//
+            //if the Customerphoneno is blank
+            if (customerPhoneNo.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Phone Number may not be blank.  : ";
+            }
+
+            //if the Customerphoneno is greater than 11 characters
+            if (customerPhoneNo.Length > 11)
+            {
+                //record the error
+                Error = Error + "The Phone No must only be 11 numbers. : ";
+            }
+            //return any error messages
             return Error;
         }
     }

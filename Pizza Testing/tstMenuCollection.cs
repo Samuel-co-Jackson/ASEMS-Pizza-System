@@ -124,6 +124,7 @@ namespace Pizza_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set the properties
+            TestItem.MenuItemID = 0;
             TestItem.Name = "Cheesy";
             TestItem.Description = "Classic cheese delite!";
             TestItem.RecipeID = 1;
@@ -144,7 +145,7 @@ namespace Pizza_Testing
             Assert.IsFalse(Found);
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void UpdateMethodOK()
         {
             //create an instance of the class we want to create
@@ -154,8 +155,8 @@ namespace Pizza_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set the properties
-            TestItem.Name = "Cheesy";
-            TestItem.Description = "Classic cheese delite!";
+            TestItem.Name = "Chees";
+            TestItem.Description = "Super Cheesy";
             TestItem.RecipeID = 1;
             TestItem.Price = 5.0;
             //set ThisMenu to test data
@@ -177,6 +178,19 @@ namespace Pizza_Testing
             AllMenu.ThisItem.Find(PrimaryKey);
             //test to see this menu matches
             Assert.AreEqual(AllMenu.ThisItem, TestItem);
+        }
+
+        [TestMethod]
+        public void RepostByPizzaNameMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsMenuCollection AllMenu = new clsMenuCollection();
+            //create an instance of the filtered pizza
+            clsMenuCollection FilteredPizza = new clsMenuCollection();
+            //apply a blank string (should return all records)
+            FilteredPizza.ReportByPizzaName("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllMenu.Count, FilteredPizza.Count);
         }
     }
 }

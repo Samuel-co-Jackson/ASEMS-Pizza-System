@@ -34,12 +34,15 @@ public partial class ACustomer : System.Web.UI.Page
         {
             //add the new record
             Add();
+            Response.Redirect("CustomerList.aspx");
         }
         else
         {
             //update the record
             Update();
-        } 
+        }
+
+        
     }
 
     //function for adding new records
@@ -48,7 +51,7 @@ public partial class ACustomer : System.Web.UI.Page
         //create an instance of the customer class
         clsCustomerCollection CustomerList = new clsCustomerCollection();
         //validate the data on the web form
-        String Error = CustomerList.ThisCustomer.Valid(txtFirstname.Text, txtLastname.Text, txtHouseNo.Text, txtStreetName.Text, txtCity.Text, txtPostcode.Text, txtPhoneNo.Text, txtEmail.Text);
+        String Error = CustomerList.ThisCustomer.Valid(txtFirstname.Text, txtLastname.Text, txtHouseNo.Text, txtStreetName.Text, txtCity.Text, txtPostcode.Text, txtEmail.Text, txtPhoneNo.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
@@ -58,8 +61,9 @@ public partial class ACustomer : System.Web.UI.Page
             CustomerList.ThisCustomer.Customerstreetname = txtStreetName.Text;
             CustomerList.ThisCustomer.Customercity = txtCity.Text;
             CustomerList.ThisCustomer.Customerpostcode = txtPostcode.Text;
-            CustomerList.ThisCustomer.Customerphoneno = Convert.ToInt64(txtPhoneNo.Text);
             CustomerList.ThisCustomer.Customeremail = txtEmail.Text;
+            CustomerList.ThisCustomer.Customerphoneno = Convert.ToInt64(txtPhoneNo.Text);
+            
             //add the record
             CustomerList.Add();
             //redirect to the main page
@@ -78,7 +82,7 @@ public partial class ACustomer : System.Web.UI.Page
         //create an instance of the customer class
         clsCustomerCollection CustomerList = new clsCustomerCollection();
         //validate the data on the web form
-        String Error = ""; //CustomerList.ThisCustomer.Valid(txtFirstname.Text, txtLastname.Text, txtHouseNo.Text, txtStreetName.Text, txtCity.Text, txtPostcode.Text, txtPhoneNo.Text, txtEmail.Text);
+        String Error = CustomerList.ThisCustomer.Valid(txtFirstname.Text, txtLastname.Text, txtHouseNo.Text, txtStreetName.Text, txtCity.Text, txtPostcode.Text, txtEmail.Text, txtPhoneNo.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
@@ -91,8 +95,9 @@ public partial class ACustomer : System.Web.UI.Page
             CustomerList.ThisCustomer.Customerstreetname = txtStreetName.Text;
             CustomerList.ThisCustomer.Customercity = txtCity.Text;
             CustomerList.ThisCustomer.Customerpostcode = txtPostcode.Text;
-            CustomerList.ThisCustomer.Customerphoneno = Convert.ToInt64(txtPhoneNo.Text);
             CustomerList.ThisCustomer.Customeremail = txtEmail.Text;
+            CustomerList.ThisCustomer.Customerphoneno = Convert.ToInt64(txtPhoneNo.Text);
+            
             //add the record
             CustomerList.Update();
             //redirect to the main page
@@ -118,8 +123,9 @@ public partial class ACustomer : System.Web.UI.Page
         txtStreetName.Text = CustomerList.ThisCustomer.Customerstreetname;
         txtCity.Text = CustomerList.ThisCustomer.Customercity;
         txtPostcode.Text = CustomerList.ThisCustomer.Customerpostcode;
-        txtPhoneNo.Text = CustomerList.ThisCustomer.Customerphoneno.ToString();
         txtEmail.Text = CustomerList.ThisCustomer.Customeremail;
+        txtPhoneNo.Text = CustomerList.ThisCustomer.Customerphoneno.ToString();
+        
     }
 
 
