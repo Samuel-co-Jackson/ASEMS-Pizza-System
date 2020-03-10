@@ -12,8 +12,8 @@ namespace Pizza_Testing
         //create some data to pass to the method
         String firstName = "John";
         String lastName = "Hathorne";
-        DateTime dateOfBirth = Convert.ToDateTime("25/09/1996");
-        DateTime dateOfHire = Convert.ToDateTime("14/02/2020");
+        String dateOfBirth = "25/09/1996";
+        String dateOfHire = "14/02/2020";
         Int32 staffRoleId = 3;
         String postCode = "LE2 8BA";
         String cityOfResidence = "Leicester";
@@ -1085,7 +1085,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfBirth = DateTime.Now.Date.AddYears(-200); //this should fail
+            dateOfBirth = DateTime.Now.Date.AddYears(-200).ToString(); //this should fail
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1099,7 +1099,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfBirth = Convert.ToDateTime("31/12/1919");
+            dateOfBirth = Convert.ToDateTime("31/12/1919").ToString();
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1113,7 +1113,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfBirth = Convert.ToDateTime("01/01/1920");
+            dateOfBirth = Convert.ToDateTime("01/01/1920").ToString();
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1127,7 +1127,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfBirth = Convert.ToDateTime("02/01/1920");
+            dateOfBirth = Convert.ToDateTime("02/01/1920").ToString();
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1141,7 +1141,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfBirth = DateTime.Now.Date.AddYears(200); //this should fail
+            dateOfBirth = DateTime.Now.Date.AddYears(200).ToString(); //this should fail
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1151,15 +1151,15 @@ namespace Pizza_Testing
         [TestMethod]
         public void DateOfBirthInvalidData()
         {
-            ////create an instance of the class we want to create
-            //clsStaff AStaff = new clsStaff();
-            ////string variable to store any error message
-            //String Error = "";
-            //dateOfBirth = "12/12/2012"; //this should fail
-            ////invoke the method
-            //Error = AStaff.Valid(firstName, lastName,  Convert.ToDateTime("12/12/12"), dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
-            ////test to see that the result is correct
-            Assert.AreNotEqual("Error", "");
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            dateOfBirth = "Hello I am not a date!"; //this should fail
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -1169,7 +1169,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfHire = DateTime.Now.Date.AddYears(-200); //this should fail
+            dateOfHire = DateTime.Now.Date.AddYears(-200).ToString(); //this should fail
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1183,7 +1183,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfHire = Convert.ToDateTime("31/12/2018");
+            dateOfHire = Convert.ToDateTime("31/12/2018").ToString();
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1197,7 +1197,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfHire = Convert.ToDateTime("01/01/2019");
+            dateOfHire = Convert.ToDateTime("01/01/2019").ToString();
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1211,7 +1211,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfHire = Convert.ToDateTime("02/01/2019");
+            dateOfHire = Convert.ToDateTime("02/01/2019").ToString();
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1225,7 +1225,7 @@ namespace Pizza_Testing
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            dateOfHire = DateTime.Now.Date.AddYears(200); //this should fail
+            dateOfHire = DateTime.Now.Date.AddYears(200).ToString(); //this should fail
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1235,15 +1235,15 @@ namespace Pizza_Testing
         [TestMethod]
         public void DateOfHireInvalidData()
         {
-            ////create an instance of the class we want to create
-            //clsStaff AStaff = new clsStaff();
-            ////string variable to store any error message
-            //String Error = "";
-            //dateOfHire = "12/12/2012"; //this should fail
-            ////invoke the method
-            //Error = AStaff.Valid(firstName, lastName,  Convert.ToDateTime("12/12/12"), dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
-            ////test to see that the result is correct
-            Assert.AreNotEqual("Error", "");
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            dateOfHire = "Hello I am also not a date!"; //this should fail
+            //invoke the method
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]

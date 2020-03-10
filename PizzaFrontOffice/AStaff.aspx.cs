@@ -65,8 +65,10 @@ public partial class AStaff : System.Web.UI.Page
 
     void Add()
     {
+        clsStaff AStaff = new clsStaff();
         clsStaffCollection StaffList = new clsStaffCollection();
-        String Error = ""; //StaffList.Valid(txtName.Text, txtAddress.Text, txtNotices.Text);
+        String Error = AStaff.Valid(txtFirstName.Text, txtLastName.Text, txtDOB.Text, txtDOH.Text, ddlRole.SelectedIndex,
+            txtPostcode.Text, txtCity.Text, txtStreet.Text, txtHouseNo.Text, txtEmail.Text, txtPhone.Text);
         if(Error == "")
         {
             StaffList.ThisStaff.staffRoleId = ddlRole.SelectedIndex;
@@ -86,13 +88,15 @@ public partial class AStaff : System.Web.UI.Page
         }
         else
         {
-            lblError.Text = "There were problems with the data entered: " + Error;
+            lblError.Text = "There were problems with the data entered:<br /><br />" + Error;
         }
     }
     void Update()
     {
+        clsStaff AStaff = new clsStaff();
         clsStaffCollection StaffList = new clsStaffCollection();
-        String Error = "";//StaffList.ThisStaff.Valid(txtName.Text, txtAddress.Text, txtNotices.Text)
+        String Error = AStaff.Valid(txtFirstName.Text, txtLastName.Text, txtDOB.Text, txtDOH.Text, ddlRole.SelectedIndex,
+            txtPostcode.Text, txtCity.Text, txtStreet.Text, txtHouseNo.Text, txtEmail.Text, txtPhone.Text);
         if (Error == "")
         {
             StaffList.ThisStaff.Find(staffId);
@@ -113,7 +117,7 @@ public partial class AStaff : System.Web.UI.Page
         }
         else
         {
-            lblError.Text = "There was problem with data entered: " + Error;
+            lblError.Text = "There was problem with data entered:<br /><br />" + Error;
         }
     }
 
