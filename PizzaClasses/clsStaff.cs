@@ -283,6 +283,10 @@ namespace PizzaClasses
             {
                 Error += "Postcode must be 10 characters or shorter!" + Environment.NewLine;
             }
+            else if (postCode.Length < 5) //Shortest UK postcode without spacebar is 5 chars (Ex. S11AA - Sheffield)
+            {
+                Error += "Postcode must be 5 characters or longer!" + Environment.NewLine;
+            }
 
             //Validation for city of residence
             if (cityOfResidence.Length == 0)
@@ -292,6 +296,10 @@ namespace PizzaClasses
             else if (cityOfResidence.Length > 60)
             {
                 Error += "City of residence must be 60 characters or shorter!" + Environment.NewLine;
+            }
+            else if (cityOfResidence.Length < 2) //Some cities worldwide are 2 signs long, could happen in England
+            {
+                Error += "City of residence must be 2 characters or longer!" + Environment.NewLine;
             }
             else if (cityOfResidence.Any(char.IsDigit))
             {
@@ -306,6 +314,10 @@ namespace PizzaClasses
             else if (streetName.Length > 40)
             {
                 Error += "Street name must be 40 characters or shorter!" + Environment.NewLine;
+            }
+            else if (streetName.Length < 4) //Shortest street in England is called "Hide" and is in London
+            {
+                Error += "Street name must be 4 characters or longer!" + Environment.NewLine;
             }
 
             //Validation for house number
