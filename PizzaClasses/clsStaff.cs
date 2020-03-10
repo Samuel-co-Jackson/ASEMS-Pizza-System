@@ -236,7 +236,7 @@ namespace PizzaClasses
                 {
                     Error += "Entered date of birth suggest the staff is over 100 years old!" + Environment.NewLine;
                 }
-                else if (DateTemp > Convert.ToDateTime("01/01/2004"))
+                else if (DateTemp >= Convert.ToDateTime("01/01/2004"))
                 {
                     Error += "Entered date of birth suggest the staff is younger than 16 years old!" + Environment.NewLine;
                 }
@@ -254,7 +254,7 @@ namespace PizzaClasses
                 {
                     Error += "The business started in 2019 so the date of hire cannot be before that date!" + Environment.NewLine;
                 }
-                else if (DateTemp > Convert.ToDateTime("01/01/2022"))
+                else if (DateTemp >= Convert.ToDateTime("01/01/2022"))
                 {
                     Error += "Entered date of hire suggest the staff will start in over a year's time!" + Environment.NewLine;
                 }

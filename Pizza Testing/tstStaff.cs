@@ -235,7 +235,7 @@ namespace Pizza_Testing
                 staffRoleId,
                 postCode, cityOfResidence, streetName, houseNumber,
                 contactEmail, contactPhoneNo);
-            Assert.Equals(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -456,7 +456,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            postCode = "L"; //this should be ok
+            postCode = "S11AA"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -471,7 +471,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            postCode = "LE"; //this should be ok
+            postCode = "S1 1AA"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -561,7 +561,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            streetName = "Sa"; //this should be ok
+            streetName = "Saff"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -576,7 +576,7 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            streetName = "Saf"; //this should be ok
+            streetName = "Saffr"; //this should be ok
             //invoke the method
             Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
@@ -1171,7 +1171,7 @@ namespace Pizza_Testing
             String Error = "";
             dateOfHire = DateTime.Now.Date.AddYears(-200); //this should fail
             //invoke the method
-            Error = AStaff.Valid(firstName, lastName, dateOfHire, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1185,7 +1185,7 @@ namespace Pizza_Testing
             String Error = "";
             dateOfHire = Convert.ToDateTime("31/12/2018");
             //invoke the method
-            Error = AStaff.Valid(firstName, lastName, dateOfHire, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1199,7 +1199,7 @@ namespace Pizza_Testing
             String Error = "";
             dateOfHire = Convert.ToDateTime("01/01/2019");
             //invoke the method
-            Error = AStaff.Valid(firstName, lastName, dateOfHire, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -1213,7 +1213,7 @@ namespace Pizza_Testing
             String Error = "";
             dateOfHire = Convert.ToDateTime("02/01/2019");
             //invoke the method
-            Error = AStaff.Valid(firstName, lastName, dateOfHire, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -1227,7 +1227,7 @@ namespace Pizza_Testing
             String Error = "";
             dateOfHire = DateTime.Now.Date.AddYears(200); //this should fail
             //invoke the method
-            Error = AStaff.Valid(firstName, lastName, dateOfHire, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
+            Error = AStaff.Valid(firstName, lastName, dateOfBirth, dateOfHire, staffRoleId, postCode, cityOfResidence, streetName, houseNumber, contactEmail, contactPhoneNo);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
