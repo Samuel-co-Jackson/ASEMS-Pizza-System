@@ -231,7 +231,7 @@ namespace PizzaClasses
             //Validation for date of birth
             try
             {
-                DateTime DateTemp = Convert.ToDateTime(dateOfBirth);
+                DateTime DateTemp = dateOfBirth;
                 if (DateTemp < Convert.ToDateTime("01/01/1920"))
                 {
                     Error += "Entered date of birth suggest the staff is over 100 years old!" + Environment.NewLine;
@@ -249,7 +249,7 @@ namespace PizzaClasses
             //Validation for date of hire
             try
             {
-                DateTime DateTemp = Convert.ToDateTime(dateOfHire);
+                DateTime DateTemp = dateOfHire;
                 if (DateTemp < Convert.ToDateTime("01/01/2019"))
                 {
                     Error += "The business started in 2019 so the date of hire cannot be before that date!" + Environment.NewLine;
@@ -269,7 +269,7 @@ namespace PizzaClasses
             {
                 Error += "Staff role is a required field!" + Environment.NewLine;
             }
-            else if (staffRoleId > 5)
+            else if (staffRoleId < 0 || staffRoleId > 5)
             {
                 Error += "You must select a staff role from the dropdown list!" + Environment.NewLine;
             }
