@@ -184,12 +184,12 @@ namespace PizzaClasses
             }
         }
 
-        public string Valid(string Customerfirstname, string Customerlastname, string Customerhouseno, string Customerstreetname, string Customercity, string Customerpostcode, string Customeremail, string customerPhoneNo)
+        public string Valid(string Customerfirstname, string Customerlastname, string Customerhouseno, string Customerstreetname, string Customercity, string Customerpostcode, string Customeremail, string Customerphoneno)
         {
             //create a string variable to store the error message
             String Error = "";
 
-           //*****************************************************//
+            //*****************************************************//
             //if the Customerfirstname is blank
             if (Customerfirstname.Length == 0)
             {
@@ -290,18 +290,45 @@ namespace PizzaClasses
 
             //*****************************************************//
             //if the Customerphoneno is blank
-            if (customerPhoneNo.Length == 0)
+            if (Customerphoneno.Length == 0)
             {
-                //record the error
-                Error = Error + "The Phone Number may not be blank.  : ";
+                //record the error 
+                Error = Error + " The customer phone number may not be blank." + " ";
             }
 
-            //if the Customerphoneno is greater than 11 characters
-            if (customerPhoneNo.Length > 11)
+            //if the Customerphoneno is less than 10 numbers or greater or equal to 12 characters
+            if (Customerphoneno.Length != 11)
             {
-                //record the error
-                Error = Error + "The Phone No must only be 11 numbers. : ";
+                //record the error 
+                Error = Error + "The customer phone number needs to be up to 11 digits.";
             }
+
+
+
+            //try
+            //{
+            //    Int32 TempCustomerPhoneNo = Convert.ToInt32(Customerphoneno);
+            //    //if Customer Phone Number is blank 
+            //    if (TempCustomerPhoneNo == 0)
+            //    {
+            //        //record the error 
+            //        Error = Error + " The customer phone number may not be blank." + " ";
+            //    }
+
+
+            //    if (TempCustomerPhoneNo < 0 | TempCustomerPhoneNo > 11)
+            //    {
+            //        //record the error 
+            //        Error = Error + " The customer phone number needs to be up to 11 digits.";
+            //    }
+            //}
+
+            //catch
+            //{
+            //    //record the error 
+            //    Error = Error + " The data was not valid. ";
+            //}
+
             //return any error messages
             return Error;
         }

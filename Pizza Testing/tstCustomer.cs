@@ -16,7 +16,7 @@ namespace Pizza_Testing
         string Customercity = "Peterborough";
         string Customerpostcode = "PE1 6AJ";
         string Customeremail = "SH7@hotmail.com";
-        string Customerphoneno = Convert.ToInt64(01234567890).ToString();
+        string Customerphoneno = Convert.ToInt64(11234567891).ToString();
 
         [TestMethod]
         public void InstanceOK()
@@ -1291,11 +1291,11 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass the method
-            string Customerphoneno = "1234567890";
+            string Customerphoneno = "1234567";
             //invoke the method
             Error = ACustomer.Valid(Customerfirstname, Customerlastname, Customerhouseno, Customerstreetname, Customercity, Customerpostcode, Customeremail, Customerphoneno);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
     
         [TestMethod]
@@ -1336,8 +1336,8 @@ namespace Pizza_Testing
             //string variable to store any error message
             String Error = "";
             //create some test data to pass the method
-            string Customerphoneno = "";
-            Customerphoneno = Customerphoneno.PadRight(50, '1');
+            string Customerphoneno = "01234567891234567678787676545";
+            //Customerphoneno = Customerphoneno.PadRight(50, '1');
             //invoke the method
             Error = ACustomer.Valid(Customerfirstname, Customerlastname, Customerhouseno, Customerstreetname, Customercity, Customerpostcode, Customeremail, Customerphoneno);
             //test to see that the result is correct
