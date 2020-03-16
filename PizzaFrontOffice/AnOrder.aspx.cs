@@ -17,7 +17,7 @@ public partial class AnOrder : System.Web.UI.Page
         if(IsPostBack == false)
         {
             //populate the list of orders
-            DisplayOrder();
+            
             //if this is not a new order
             if (OrderID != -1)
             {
@@ -32,15 +32,13 @@ public partial class AnOrder : System.Web.UI.Page
         {
             //add new record
             Add();
+
         }
         else
         {
             //update the record
             Update();
         }
-
-        //redirect to the viewer page
-        Response.Redirect("OrderList.aspx");
     }
 
     void DisplayOrder()
@@ -62,15 +60,16 @@ public partial class AnOrder : System.Web.UI.Page
         //create an instance of the order
         clsOrderCollection Orders = new clsOrderCollection();
         //validate the data on the web form
-        String Error = ""; //Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatus.Text);
+        String Error = Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatus.Text);
         //if the data is OK then add it to the object
         if(Error == "")
         {
+            
             //get the data entered by the user
             Orders.ThisOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
             Orders.ThisOrder.StaffID = Convert.ToInt32(txtStaffID.Text);
             Orders.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
-            Orders.ThisOrder.OrderStatus = Convert.ToString(txtOrderStatus.Text);
+            Orders.ThisOrder.OrderStatus = txtOrderStatus.Text;
             //add the record
             Orders.Add();
             //redirect to the main page
@@ -79,7 +78,7 @@ public partial class AnOrder : System.Web.UI.Page
         else
         {
             //report an error
-            lblError.Text = "There were problems with the data you entered" + Error;
+            lblError.Text = "There were issues with the data entered: <br /><br />" + Error;
         }
     }
 
@@ -89,7 +88,7 @@ public partial class AnOrder : System.Web.UI.Page
         //create an instance of the order
         clsOrderCollection Orders = new clsOrderCollection();
         //validate the data on the web form
-        String Error = "";// Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatus.Text);
+        String Error = Orders.ThisOrder.Valid(txtCustomerID.Text, txtStaffID.Text, txtOrderDate.Text, txtOrderStatus.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
@@ -99,7 +98,7 @@ public partial class AnOrder : System.Web.UI.Page
             Orders.ThisOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
             Orders.ThisOrder.StaffID = Convert.ToInt32(txtStaffID.Text);
             Orders.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
-            Orders.ThisOrder.OrderStatus = Convert.ToString(txtOrderStatus.Text);
+            Orders.ThisOrder.OrderStatus = txtOrderStatus.Text;
             //update the order
             Orders.Update();
             //redirect to the main page
