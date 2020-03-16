@@ -73,7 +73,7 @@
         <asp:Label ID="Label1" runat="server" CssClass="auto-style3" Text="Please Enter a Pizza Name"></asp:Label>
         <asp:TextBox ID="txtPizzaName" runat="server" CssClass="auto-style4"></asp:TextBox>
         <asp:Button ID="btnApply" runat="server" CssClass="auto-style5" Text="Apply" OnClick="btnApply_Click" />
-        <asp:Button ID="btnDisplay" runat="server" CssClass="auto-style6" Text="Display" />
+        <asp:Button ID="btnDisplay" runat="server" CssClass="auto-style6" Text="Display" OnClick="btnDisplay_Click" />
         <asp:Button ID="btnAdd" runat="server" CssClass="auto-style7" OnClick="btnAdd_Click" Text="Add" />
         <asp:Button ID="btnEdit" runat="server" CssClass="auto-style8" Text="Edit" OnClick="btnEdit_Click" />
         <asp:Button ID="btnDelete" runat="server" CssClass="auto-style9" Text="Delete" OnClick="btnDelete_Click" />
