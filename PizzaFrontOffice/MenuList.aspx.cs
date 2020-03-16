@@ -10,7 +10,12 @@ public partial class MenuList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //if this is the first time the page is displayed
+        if (IsPostBack == false)
+        {
+            //update the list box
+            DisplayMenu();
+        }
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -68,7 +73,7 @@ public partial class MenuList : System.Web.UI.Page
 
     }
 
-    protected void btnDisplay_Click(object sender, EventArgs e)
+    void DisplayMenu()
     {
         //create an instance of the Menu collection
         clsMenuCollection Menu = new clsMenuCollection();
@@ -80,5 +85,10 @@ public partial class MenuList : System.Web.UI.Page
         lstMenu.DataTextField = "Name";
         //bind the data to the list
         lstMenu.DataBind();
+    }
+
+    protected void btnDisplay_Click(object sender, EventArgs e)
+    {
+        DisplayMenu();
     }
 }
