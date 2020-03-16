@@ -34,7 +34,7 @@ public partial class ACustomer : System.Web.UI.Page
         {
             //add the new record
             Add();
-            Response.Redirect("CustomerList.aspx");
+            
         }
         else
         {
