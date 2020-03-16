@@ -118,7 +118,7 @@ namespace PizzaClasses
             //create a temporary variable to store the date values
             DateTime DateTemp;
             //if the Customer id is blank
-            if(CustomerID.Length == 0)
+            if(CustomerID.Length == 0 | CustomerID.Length <1)
             {
                 //record the error
                 Error = Error + "The customer id may not be blank";
@@ -130,6 +130,7 @@ namespace PizzaClasses
                 Error = Error + "The customer id must be less than 1000";
             }
             ///////////////////////////////////////////////////////////////
+            
             if(StaffID.Length == 0)
             {
                 //record the error
@@ -141,7 +142,9 @@ namespace PizzaClasses
                 //record an error
                 Error = Error + "The staff id must be less than 1000";
             }
+
             //////////////////////////////////////////////////////////////
+            
             try
             {
                 DateTemp = Convert.ToDateTime(OrderDate);
@@ -163,9 +166,11 @@ namespace PizzaClasses
                 //record the error
                 Error = Error + "The date was not a valid date";
             }
+
             /////////////////////////////////////////////////////////////
+            
             //if its blank
-            if (OrderStatus.Length == 0)
+            if (OrderStatus.Length < 5)
             {
                 //record the error
                 Error = Error + "The order status must not be blank";

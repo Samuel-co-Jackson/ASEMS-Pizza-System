@@ -97,9 +97,42 @@ namespace PizzaClasses
             }
         }
 
-        public string Valid(string text1, string text2, string text3, string text4)
+        public string Valid(string name, string description, Int32 recipeID, Double price)
         {
-            throw new NotImplementedException();
+            //string to hold error
+            String Error = "";
+            //if name is blank
+            if(name.Length == 0)
+            {
+                Error = Error + "The Pizza name cannot be blank. ";
+            }
+            //if name over max (20)
+            else if(name.Length > 20)
+            {
+                Error = Error + "The Pizza name can't be more than 20 characters. ";
+            }
+            //if description blank
+            if(description.Length == 0)
+            {
+                Error = Error + "The Pizza description cannot be blank. ";
+            }
+            //if description over max (40)
+            else if(description.Length > 40)
+            {
+                Error = Error + "The Pizza description can't be more than 40 characters. ";
+            }
+            //if recipeID is negative
+            if(recipeID < 0)
+            {
+                Error = Error + "There aren't any negative recipe IDs. ";
+            }
+            //if price is negative (we're not giving out money but some stuff could become free on special events)
+            if(price < 0)
+            {
+                Error = Error + "The price can't be negative, we're not giving out money! ";
+            }
+
+            return Error;
         }
     }
 }

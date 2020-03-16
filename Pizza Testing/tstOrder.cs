@@ -115,11 +115,11 @@ namespace Pizza_Testing
             //boolean variable to record if data is OK (Assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 103;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the order id
-            if(AnOrder.OrderID != 103)
+            if(AnOrder.OrderID != 1)
             {
                 OK = false;
             }
@@ -137,11 +137,11 @@ namespace Pizza_Testing
             //boolean variable to record if data is OK (Assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 103;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the order id
-            if (AnOrder.CustomerID != 99)
+            if (AnOrder.CustomerID != 1)
             {
                 OK = false;
             }
@@ -159,11 +159,11 @@ namespace Pizza_Testing
             //boolean variable to record if data is OK (Assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 103;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the order id
-            if (AnOrder.StaffID != 99)
+            if (AnOrder.StaffID != 1)
             {
                 OK = false;
             }
@@ -181,11 +181,11 @@ namespace Pizza_Testing
             //boolean variable to record if data is OK (Assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 103;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if(AnOrder.OrderDate !=Convert.ToDateTime("02/03/2020"))
+            if(AnOrder.OrderDate !=Convert.ToDateTime("12/03/2020"))
             {
                 OK = false;
             }
@@ -618,7 +618,7 @@ namespace Pizza_Testing
             //string variable to store any error messages
             String Error = "";
             //this should fail
-            string OrderStatus = "a";
+            string OrderStatus = "Cooks";
             //invoke the method
             Error = AnOrder.Valid(CustomerID, StaffID, OrderDate, OrderStatus);
             //test to see that the result is correct
@@ -633,7 +633,7 @@ namespace Pizza_Testing
             //string variable to store any error messages
             String Error = "";
             //this should fail
-            string OrderStatus = "Co";
+            string OrderStatus = "Cookss";
             //invoke the method
             Error = AnOrder.Valid(CustomerID, StaffID, OrderDate, OrderStatus);
             //test to see that the result is correct
