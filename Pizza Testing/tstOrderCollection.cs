@@ -35,7 +35,7 @@ namespace Pizza_Testing
             TestItem.CustomerID = 1;
             TestItem.StaffID = 1;
             TestItem.OrderDate = DateTime.Now.Date;
-            TestItem.OrderStatus = "Cooking";
+            TestItem.OrderStatus = "Accepted";
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -130,9 +130,9 @@ namespace Pizza_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            //TestItem.OrderID = 73;
-            TestItem.CustomerID = 1;
-            TestItem.StaffID = 1;
+            TestItem.OrderID = 175;
+            TestItem.CustomerID = 11;
+            TestItem.StaffID = 11;
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.OrderStatus = "Cooking";
             //set ThisOrder to the test
@@ -219,17 +219,12 @@ namespace Pizza_Testing
             //var to store the outcome
             Boolean OK = true;
             //apply a status that doesn't exists
-            FilteredOrders.ReportOrderStatus("Hello");
+            FilteredOrders.ReportOrderStatus("Accepted");
             //check that the correct number of records are found
             if(FilteredOrders.Count == 2)
             {
                 //check that the first record is ID 87
                 if (FilteredOrders.OrderList[0].OrderID != 1)
-                {
-                    OK = false;
-                }
-                //check that the first record is ID 88
-                if (FilteredOrders.OrderList[1].OrderID != 2)
                 {
                     OK = false;
                 }

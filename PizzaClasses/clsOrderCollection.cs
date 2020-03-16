@@ -70,7 +70,6 @@ namespace PizzaClasses
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            //DB.AddParameter("@OrderID", mThisOrder.OrderID);
             DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
             DB.AddParameter("@StaffID", mThisOrder.StaffID);
             DB.AddParameter("@OrderDate", mThisOrder.OrderDate);

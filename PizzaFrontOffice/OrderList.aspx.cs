@@ -57,7 +57,7 @@ public partial class OrderList : System.Web.UI.Page
         if(lstOrder.SelectedIndex != -1)
         {
             //get the primary key value of the record to delete
-            OrderID = Convert.ToInt32(lstOrder.SelectedIndex);
+            OrderID = Convert.ToInt32(lstOrder.SelectedValue);
             //store the data in the session object
             Session["OrderID"] = OrderID;
             //redirect to the delete page
@@ -78,7 +78,7 @@ public partial class OrderList : System.Web.UI.Page
         if(lstOrder.SelectedIndex != -1)
         {
             //get the primary key value of the record to edit
-            OrderID = Convert.ToInt32(lstOrder.SelectedIndex);
+            OrderID = Convert.ToInt32(lstOrder.SelectedValue);
             //store the data in the session object
             Session["OrderID"] = OrderID;
             //redirect to edit page 
