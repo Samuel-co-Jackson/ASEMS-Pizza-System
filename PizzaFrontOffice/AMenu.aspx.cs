@@ -48,7 +48,7 @@ public partial class AMenu : System.Web.UI.Page
         //create an instance of the menu book
         clsMenuCollection MenuBook = new clsMenuCollection();
         //validate the data on the web form
-        String Error = MenuBook.ThisItem.Valid(txtName.Text, txtDescription.Text, txtRecipe.Text, txtPrice.Text);
+        String Error = MenuBook.ThisItem.Valid(txtName.Text, txtDescription.Text, Convert.ToInt32(txtRecipe.Text), Convert.ToDouble(txtPrice.Text));
         //if the data is OK then add it to the object
         if (Error == "")
         {
@@ -74,7 +74,7 @@ public partial class AMenu : System.Web.UI.Page
         //create an instance of the menu book
         clsMenuCollection MenuBook = new clsMenuCollection();
         //validate the data on the web form
-        String Error = MenuBook.ThisItem.Valid(txtName.Text, txtDescription.Text, txtRecipe.Text, txtPrice.Text);
+        String Error = MenuBook.ThisItem.Valid(txtName.Text, txtDescription.Text, Convert.ToInt32(txtRecipe.Text), Convert.ToDouble(txtPrice.Text));
         //if the data is OK then add it to the object
         if (Error == "")
         {
