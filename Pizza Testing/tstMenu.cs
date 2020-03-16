@@ -7,6 +7,13 @@ namespace Pizza_Testing
     [TestClass]
     public class tstMenu
     {
+
+        //good test data
+        string Name = "Cheese Pizza";
+        string Description = "The classic we all love";
+        Int32 RecipeID = 1;
+        Double Price = 5.5;
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -94,6 +101,199 @@ namespace Pizza_Testing
             Found = AMenu.Find(MenuID);
             //test to see that the result is correct
             Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMinLessOne()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            string Name = "";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMin()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            string Name = "a";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMax()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            string Name = "01234567890123456789";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxPlusOne()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            string Name = "012345678901234567890";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMinLessOne()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            string Description = "";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMin()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            string Description = "a";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMax()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            string Description = "0123456789012345678901234567890123456789";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMaxPlusOne()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            string Description = "01234567890123456789012345678901234567890";
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RecipeIDMinLessOne()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            Int32 RecipeID = -1;
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RecipeIDMin()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            Int32 RecipeID = 0;
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMinLessOne()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            Double Price = -1;
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceIDMin()
+        {
+            //crerate an instance of the class we want to create
+            clsMenu AMenu = new clsMenu();
+            //string for error 
+            String Error = "";
+            //test data
+            Double Price = 0;
+            //invoke method
+            Error = AMenu.Valid(Name, Description, RecipeID, Price);
+            //test results
+            Assert.AreEqual(Error, "");
         }
     }
 }
