@@ -4,12 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using PizzaClasses;
 
 public partial class MenuList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //if this is the first time the page is displayed
+        if (IsPostBack == false)
+        {
+            //update the list box
+            DisplayMenu();
+        }
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -65,5 +71,24 @@ public partial class MenuList : System.Web.UI.Page
     protected void btnApply_Click(object sender, EventArgs e)
     {
 
+    }
+
+    void DisplayMenu()
+    {
+        //create an instance of the Menu collection
+        clsMenuCollection Menu = new clsMenuCollection();
+        //set the data source to the list of Menu items in the collection
+        lstMenu.DataSource = Menu.MenuList;
+        //set the name of the primary key
+        lstMenu.DataValueField = "MenuItemID";
+        //set the data field to display
+        lstMenu.DataTextField = "Name";
+        //bind the data to the list
+        lstMenu.DataBind();
+    }
+
+    protected void btnDisplay_Click(object sender, EventArgs e)
+    {
+        DisplayMenu();
     }
 }
