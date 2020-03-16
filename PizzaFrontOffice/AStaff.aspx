@@ -8,8 +8,8 @@
     <style type="text/css">
         .auto-style1 {
             position: absolute;
-            top: 370px;
-            left: 56px;
+            top: 417px;
+            left: 46px;
             z-index: 1;
             height: 90px;
         }
