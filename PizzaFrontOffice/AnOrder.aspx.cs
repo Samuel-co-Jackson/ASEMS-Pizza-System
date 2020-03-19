@@ -78,7 +78,7 @@ public partial class AnOrder : System.Web.UI.Page
         else
         {
             //report an error
-            lblError.Text = "There were issues with the data entered: <br /><br />" + Error;
+            lblError.Text = "There were issues with the data entered: <br /><br /><br />" + Error;
         }
     }
 
@@ -107,7 +107,7 @@ public partial class AnOrder : System.Web.UI.Page
         else
         {
             //report an error
-            lblError.Text = "There were problems with the data entered " + Error;
+            lblError.Text = "There were problems with the data entered: <br /><br /><br /><br /> " + Error;
         }
     }
 

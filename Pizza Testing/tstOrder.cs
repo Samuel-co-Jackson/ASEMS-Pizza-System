@@ -23,8 +23,6 @@ namespace Pizza_Testing
             Assert.IsNotNull(AnOrder);
         }
 
-
-
         [TestMethod]
         public void OrderIDPropertyOK()
         {
@@ -98,7 +96,7 @@ namespace Pizza_Testing
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderID = 103;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //test to see that the result is correct
@@ -203,11 +201,11 @@ namespace Pizza_Testing
             //boolean variable to record if data is OK (Assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 103;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if(AnOrder.OrderStatus != "Accepted")
+            if(AnOrder.OrderStatus != "Delivering")
             {
                 OK = false;
             }
