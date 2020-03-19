@@ -34,4 +34,10 @@ public partial class StockDelete : System.Web.UI.Page
         //redirect back to the stock list
         Response.Redirect("StockList.aspx");
     }
+
+    protected void ButtonNo_Click(object sender, EventArgs e)
+    {
+        //redirect back to the stock list
+        Response.Redirect("StockList.aspx");
+    }
 }

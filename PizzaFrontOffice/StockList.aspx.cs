@@ -8,6 +8,9 @@ using System.Web.UI.WebControls;
 
 public partial class StockList : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 StockID;
+
     //the following function takes care of the pages load event
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -25,7 +28,7 @@ public partial class StockList : System.Web.UI.Page
         //set the data source to the list of items in the collection
         ListBoxStock.DataSource = Stocks.StockList;
         ////set the name of the primary key
-        //ListBoxStock.DataValueField = "StockNo";
+        ListBoxStock.DataValueField = "StockID";
         //set the data field to display
         ListBoxStock.DataTextField = "Name";
         //bind the data to the list
@@ -42,7 +45,7 @@ public partial class StockList : System.Web.UI.Page
 
     protected void ButtonDisplayStock_Click(object sender, EventArgs e)
     {
-
+        DisplayStock();
     }
 
     protected void ButtonDelete_Click(object sender, EventArgs e)
@@ -53,7 +56,7 @@ public partial class StockList : System.Web.UI.Page
         if (ListBoxStock.SelectedIndex != -1)
         {
             //retrieve the primary key value of the record to delete
-            StockID = Convert.ToInt32(ListBoxStock.SelectedIndex);
+            StockID = Convert.ToInt32(ListBoxStock.SelectedValue);
             //store the data in the session object
             Session["StockID"] = StockID;
             //redirect to the delete page
@@ -75,7 +78,7 @@ public partial class StockList : System.Web.UI.Page
         if (ListBoxStock.SelectedIndex != -1)
         {
             //retrieve the primary key value of the record to edited
-            StockID = Convert.ToInt32(ListBoxStock.SelectedIndex);
+            StockID = Convert.ToInt32(ListBoxStock.SelectedValue);
             //store the data in the session object
             Session["StockID"] = StockID;
             //redirect to the delete page
@@ -87,5 +90,15 @@ public partial class StockList : System.Web.UI.Page
             //display an error
             LabelError.Text = "Please select an item to edit from the list";
         }
+    }
+
+    protected void ListBoxStock_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void ButtonApply_Click(object sender, EventArgs e)
+    {
+        
     }
 }

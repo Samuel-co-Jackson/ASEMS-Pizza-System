@@ -85,7 +85,7 @@ namespace PizzaClasses
             //variable for the index
             Int32 Index = 0;
             //variable to store the record count
-            Int32 RecordCount;
+            Int32 RecordCount = 0;
             //get the count of records
             RecordCount = DB.Count;
             //clear the private array
@@ -96,6 +96,7 @@ namespace PizzaClasses
                 //create a blank stock item
                 clsStock AStock = new clsStock();
                 //read in the fields from the current record
+                AStock.StockID = Convert.ToInt32(DB.DataTable.Rows[Index]["StockID"]);
                 AStock.Name = Convert.ToString(DB.DataTable.Rows[Index]["Name"]);
                 AStock.Description = Convert.ToString(DB.DataTable.Rows[Index]["Description"]);
                 AStock.StockQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["StockQuantity"]);

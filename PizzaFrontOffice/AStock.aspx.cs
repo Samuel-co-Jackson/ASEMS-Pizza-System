@@ -20,9 +20,9 @@ public partial class AStock : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //populate the list of stock items
-            DisplayStock();
+            //DisplayStock();
             //if this isn't a new record
-            if (StockID != -1)
+            if (StockID !=-1)
             {
                 //populate the list of stokc items
                 DisplayStock();

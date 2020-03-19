@@ -116,48 +116,79 @@ namespace PizzaClasses
 
         public string Valid(string Name, string Description, string StockQuantity, string StockItemPrice)
         {
-            string Error = "";
+            String Error = "";
+            
+            //if the name is blank
+            if (Name.Length == 0)
+            {
+                //record the error
+                Error = Error + ". The item name may not be empty.";
+            }
+            //if the Name is less than 1 characters
+            if (Name.Length < 1)
+            {
+                //record the error
+                Error = Error + ". The item name is too short.";
+            }
+            //if the name is longer than 50 characters
+            if (Name.Length > 50)
+            {
+                //record the error
+                Error = Error + ". The item name is too long.";
+            }
+
+            //if the description is blank 
+            if (Description.Length == 0)
+            {
+                //record the error
+                Error = Error + ". The item description may not be empty.";
+            }
+            //if the description is less than 10 characters
+            if (Description.Length < 10)
+            {
+                //record the error
+                Error = Error + ". The item description is too short.";
+            }
+            //if the description is longer than 100 characters
+            if (Description.Length > 100)
+            {
+                //record the error
+                Error = Error + ". The item description is too long.";
+            }
+
+            //if the StockQuantity is blank
+            if (StockQuantity.Length == 0)
+            {
+                //record the error
+                Error = Error + ". An incorrect quantity value has been entered.";
+            }
+            //if the StockQuantity is blank
+            if (StockQuantity.Length < 1)
+            {
+                //record the error
+                Error = Error + ". No quantity value has been entered, please enter a quantity value.";
+            }
+            //if the StockQuantity is longer than 3 characters
+            if (StockQuantity.Length > 3)
+            {
+                //record the error
+                Error = Error + ". The item quantity exceeds limits.";
+            }
+
+            //if the StockItemPrice is blank
+            if (StockItemPrice.Length == 0)
+            {
+                //record the error
+                Error = Error + ". An incorrect price value has been entered.";
+            }
+            //if the StockItemPrice is blank
+            if (StockItemPrice.Length < 1)
+            {
+                //record the error
+                Error = Error + ". No price value has been entered, please enter a price value.";
+            }
+            //return any error message
             return Error;
-
-            ////if the name is blank
-            //if (Name.Length == 0)
-            //{
-            //    //record the error
-            //    Error = Error + "The item name may not be empty.";
-            //}
-            ////if the name is longer than 50 characters
-            //if (Name.Length > 50)
-            //{
-            //    //record the error
-            //    Error = Error + "The item name is too long.";
-            //}
-
-            ////if the description is blank 
-            //if (Description.Length == 0)
-            //{
-            //    //record the error
-            //    Error = Error + "The item description is too long.";
-            //}
-            ////if the description is longer than 50 characters
-            //if (Description.Length > 50)
-            //{
-            //    //record the error
-            //    Error = Error + "The item description is too long.";
-            //}
-
-            ////if the StockQuantity is blank
-            //if (StockQuantity.Length == 0)
-            //{
-            //    //record the error
-            //    Error = Error + "An incorrect quantity value has been entered.";
-            //}
-
-            ////if the StockItemPrice is blank
-            //if (StockItemPrice.Length == 0)
-            //{
-            //    //record the error
-            //    Error = Error + "An incorrect price value has been entered.";
-            //}
         }
     }
 }
