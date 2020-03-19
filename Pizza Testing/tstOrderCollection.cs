@@ -130,9 +130,9 @@ namespace Pizza_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.OrderID = 175;
-            TestItem.CustomerID = 11;
-            TestItem.StaffID = 11;
+            TestItem.OrderID = 50;
+            TestItem.CustomerID = 1;
+            TestItem.StaffID = 1;
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.OrderStatus = "Cooking";
             //set ThisOrder to the test
@@ -219,7 +219,7 @@ namespace Pizza_Testing
             //var to store the outcome
             Boolean OK = true;
             //apply a status that doesn't exists
-            FilteredOrders.ReportOrderStatus("Accepted");
+            FilteredOrders.ReportOrderStatus("Delivering");
             //check that the correct number of records are found
             if(FilteredOrders.Count == 2)
             {
