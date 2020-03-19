@@ -195,7 +195,7 @@ namespace Pizza_Testing
             TestItem.Customerstreetname = "Sixth Floor";
             TestItem.Customercity = "Leicester";
             TestItem.Customerpostcode = "LE4 0YT";
-            TestItem.Customerphoneno = 13578654360;
+            TestItem.Customerphoneno = 13578654361;
             TestItem.Customeremail = "GWX32@hotmail.co.uk";
             //set the record based on the test data
             AllCustomers.ThisCustomer = TestItem;
