@@ -6,19 +6,17 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="background-color:whitesmoke;">
     <form id="form1" runat="server">
         <div>
         </div>
-        <p>
-            &nbsp;</p>
+        <br />
+        <br />
         <p>
             <asp:Label ID="LabelDelete" runat="server" Text="Are you sure you want to delete the following item?"></asp:Label>
         </p>
-        <asp:Button ID="ButtonYes" runat="server" OnClick="ButtonYes_Click" style="z-index: 1; left: 35px; top: 35px; position: relative; width: 45px;" Text="Yes" Height="26px" />
-        <p>
-            &nbsp;</p>
-        <asp:Button ID="ButtonNo" runat="server" style="z-index: 1; left: 122px; top: 162px; position: absolute; height: 28px; width: 45px; margin-top: 0px" Text="No" />
+        <asp:Button ID="ButtonYes" runat="server" OnClick="ButtonYes_Click" style="z-index: 1; left: 35px; top: 150px; position: absolute; width: 45px;" Text="Yes" BackColor="White" BorderColor="Black" />
+        <asp:Button ID="ButtonNo" runat="server" style="z-index: 1; left: 100px; top: 150px; position: absolute; width: 45px;" Text="No" BackColor="White" BorderColor="Black" OnClick="ButtonNo_Click" />
     </form>
 </body>
 </html>

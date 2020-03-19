@@ -210,24 +210,24 @@ namespace Pizza_Testing
             //var to store the outcome
             Boolean OK = true;
             //apply a Name that does not exist
-            FilteredNames.ReportByName("Non existent");
+            FilteredNames.ReportByName("Pinapple");
             //check that the correct number of records are found
             if (FilteredNames.Count == 2)
             {
-                //check that the first record ID 110
-                if (FilteredNames.StockList[0].StockID != 110)
+                //check that the first record
+                if (FilteredNames.StockList[0].StockID != 4)
                 {
                     OK = false;
                 }
-                //check that the first record ID 111
-                if (FilteredNames.StockList[1].StockID != 111)
+                //check that the second record
+                if (FilteredNames.StockList[1].StockID != 7)
                 {
                     OK = false;
                 }
             }
             else
             {
-                OK = true;
+                OK = false;
             }
             //test to see that there are no records
             Assert.IsTrue(OK);
