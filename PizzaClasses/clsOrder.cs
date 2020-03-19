@@ -170,7 +170,7 @@ namespace PizzaClasses
             /////////////////////////////////////////////////////////////
             
             //if its blank
-            if (OrderStatus.Length < 5)
+            if ( OrderStatus.Length == 0| OrderStatus.Length < 5)
             {
                 //record the error
                 Error = Error + "The order status must not be blank";

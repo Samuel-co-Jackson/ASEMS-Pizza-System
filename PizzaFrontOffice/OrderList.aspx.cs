@@ -90,4 +90,35 @@ public partial class OrderList : System.Web.UI.Page
             lblError.Text = "Please select a record to edit from the list";
         }
     }
+
+    Int32 DisplayOrders(string OrderStatusFilter)
+    {
+        Int32 OrderID;
+        string OrderStatus;
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportOrderStatus(OrderStatusFilter);
+        Int32 RecordCount;
+        Int32 Index = 0;
+        RecordCount = Orders.Count;
+        lstOrder.Items.Clear();
+        while(Index < RecordCount)
+        {
+            OrderID = Orders.OrderList[Index].OrderID;
+            OrderStatus = Orders.OrderList[Index].OrderStatus;
+            ListItem NewEntry = new ListItem(OrderStatus + " ", OrderID.ToString());
+            lstOrder.Items.Add(NewEntry);
+            Index++;
+        }
+        return RecordCount;
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        DisplayOrders(txtOrder.Text);
+    }
+
+    protected void btnDisplayAll_Click(object sender, EventArgs e)
+    {
+        DisplayOrders("");
+    }
 }
