@@ -21,6 +21,10 @@
         <asp:TextBox ID="TextBoxPrice" runat="server" style="z-index: 1; left: 101px; top: 312px; position: absolute" BackColor="White" BorderColor="Black"></asp:TextBox>
         <asp:Button ID="ButtonOK" runat="server" OnClick="ButtonOK_Click" style="z-index: 1; left: 35px; top: 605px; position: absolute; width: 39px;" Text="Ok" BackColor="White" BorderColor="Black" />
         <asp:Button ID="ButtonCancel" runat="server" style="z-index: 1; left: 101px; top: 605px; position: absolute" Text="Cancel" BackColor="White" BorderColor="Black" />
+
+        <asp:Label ID="LabelTitle" runat="server" Font-Bold="True" style="position: absolute; top: 15px; left: 25px" Text="ASEMS Pizza" BackColor="White" BorderColor="Black" Font-Size="20pt"></asp:Label>
+        
+        <asp:Label ID="LabelSubTitle" runat="server" Font-Bold="True" style="position: absolute; top: 45px; left: 25px" Font-Size="15pt" Text="Stock Details"></asp:Label>
     </form>
 </body>
 </html>

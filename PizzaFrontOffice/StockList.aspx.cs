@@ -99,6 +99,26 @@ public partial class StockList : System.Web.UI.Page
 
     protected void ButtonApply_Click(object sender, EventArgs e)
     {
-        
+        //DisplayStockQuantity(TextBoxSearch.Text);
     }
+
+    //String DisplayStockQuantity(string NameFilter)
+    //{
+    //    Int32 StockID;
+    //    string Name;
+    //    clsStockCollection StockBook = new clsStockCollection();
+    //    StockBook.ReportByName(NameFilter);
+    //    Int32 RecordCount;
+    //    Int32 Index = 0;
+    //    RecordCount = StockBook.Count;
+    //    ListBoxStock.Items.Clear();
+    //    while (Index < RecordCount)
+    //    {
+    //        StockID = StockBook.StockList[Index].StockID;
+    //        Name = StockBook.StockList[Index].Name;
+    //        ListItem NewEntry = new ListItem(Name + "", StockID.ToString());
+    //        ListBoxStock.Items.Add(NewEntry);
+    //    }
+    //    return RecordCount;
+    //}
 }
